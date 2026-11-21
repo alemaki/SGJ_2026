@@ -149,6 +149,8 @@ func draw_maze() -> void:
 	var wall_cells: Array[Vector2i] = []
 	var ground_cells: Array[Vector2i] = []
 	var path_cells: Array[Vector2i] = []
+	for x in range(starting_point.x):
+		map[starting_point.y][x] = MazePart.EMPTY
 	for y in range(-self.neighbour_distance, size_rows + self.neighbour_distance):
 		for x in range(-self.neighbour_distance, size_columns + self.neighbour_distance):
 			var pos := Vector2i(x, y)
