@@ -4,8 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cx86j1j12tj1f" path="res://src/resources/walking_animations.tres" id="2_5p0pn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vboe8"]
-radius = 8.0
-height = 26.0
+height = 40.0
 
 [sub_resource type="Gradient" id="Gradient_mxi56"]
 interpolation_mode = 2
@@ -26,7 +25,6 @@ script = ExtResource("1_5p0pn")
 animation_player = NodePath("Body")
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=2139457209]
-scale = Vector2(0.11718754, 0.1640625)
 sprite_frames = ExtResource("2_5p0pn")
 animation = &"idle"
 
@@ -38,3 +36,4 @@ scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("GradientTexture2D_5p0pn")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1406851156]
+zoom = Vector2(5, 5)
