@@ -1,22 +1,153 @@
 extends CharacterBody2D
 
-
+# Movement settings
 @export var speed: float = 200.0
 @export var acceleration: float = 1500.0
 @export var friction: float = 1200.0
 
+# Illumination settings
+@export var illuminate_cooldown: float = 1.5
+
+const RING_TEXTURE_SIZE := 256
+const RING_MIN_SCALE := 0.01
+
+var _illuminate_cooldown_left: float = 0.0
+
+@export var light_radius: float = 750.0          
+@export var light_energy: float = 1         
+@export var light_grow_duration: float = 1.1     
+@export var light_shrink_duration: float = 0.4   
+@export var light_color: Color = Color(1.0, 0.95, 0.7)
+@export_range(0.01, 1.0, 0.01) var light_core_brightness: float = 0.5  # peak at the center (1.0 = full white)
+@export_range(0.0, 1.0, 0.01) var light_falloff_softness: float = 0.5  # 0 = linear, 1 = very soft, wide glow
+
+
+const LIGHT_TEXTURE_SIZE := 256
+const LIGHT_MIN_SCALE := 0.01
+
+var _light_texture: GradientTexture2D
+var _light: PointLight2D
+var _light_tween: Tween
+var _light_on := false
+
 func _physics_process(delta: float) -> void:
 
+	# Handling movement
 	var input_dir := Vector2(
 		Input.get_axis("ui_left_device_0", "ui_right_device_0"),
 		Input.get_axis("ui_up_device_0", "ui_down_device_0")
 	)
-
+	
 	input_dir = input_dir.limit_length(1.0)
 
 	if input_dir != Vector2.ZERO:
 		velocity = velocity.move_toward(input_dir * speed, acceleration * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-
 	move_and_slide()
+
+	# Hangling Illuminate cooldown
+	_illuminate_cooldown_left = maxf(_illuminate_cooldown_left - delta, 0.0)
+
+	if Input.is_action_just_pressed("ui_accept_device_0") and _illuminate_cooldown_left == 0.0:
+		_toggle_light()
+		_illuminate_cooldown_left = illuminate_cooldown
+		
+
+func _toggle_light() -> void:
+	_light_on = not _light_on
+	if _light_tween:
+		_light_tween.kill()
+
+	if _light_on:
+		_grow_light()
+	else:
+		_shrink_light()
+
+
+func _grow_light() -> void:
+	if _light == null:
+		_light = PointLight2D.new()
+		_light.texture = _get_light_texture()
+		_light.color = light_color
+		_light.energy = 0.0
+		_light.texture_scale = LIGHT_MIN_SCALE
+		add_child(_light)
+
+	# If reversing a shrink, only spend the time still needed
+	var duration := light_grow_duration * (1.0 - _light_progress())
+
+	_light_tween = _light.create_tween().set_parallel(true)
+	_light_tween.tween_property(_light, "texture_scale", _light_target_scale(), duration) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	_light_tween.tween_property(_light, "energy", light_energy, duration) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+
+func _shrink_light() -> void:
+	if _light == null:
+		return
+
+	var duration := light_shrink_duration * _light_progress()
+
+	_light_tween = _light.create_tween().set_parallel(true)
+	_light_tween.tween_property(_light, "texture_scale", LIGHT_MIN_SCALE, duration) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	_light_tween.tween_property(_light, "energy", 0.0, duration) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	_light_tween.chain().tween_callback(_free_light)
+
+
+func _free_light() -> void:
+	if _light:
+		_light.queue_free()
+		_light = null
+
+
+func _light_target_scale() -> float:
+	return light_radius * 2.0 / LIGHT_TEXTURE_SIZE
+
+
+# 0.0 = fully shrunk, 1.0 = fully grown
+func _light_progress() -> float:
+	if _light == null:
+		return 0.0
+	return clampf(
+		inverse_lerp(LIGHT_MIN_SCALE, _light_target_scale(), _light.texture_scale),
+		0.0, 1.0)
+
+
+# Current light radius in pixels (0 when off)
+func get_light_radius() -> float:
+	if _light == null:
+		return 0.0
+	return _light.texture_scale * LIGHT_TEXTURE_SIZE * 0.5
+
+func _get_light_texture() -> GradientTexture2D:
+	if _light_texture == null:
+		var gradient := Gradient.new()
+		var steps := 32
+		var offsets := PackedFloat32Array()
+		var colors := PackedColorArray()
+
+		# Smooth bell-like curve sampled into gradient stops
+		var power := lerpf(1.0, 3.0, light_falloff_softness)
+		for i in steps + 1:
+			var t := float(i) / steps
+			var a := light_core_brightness * pow(1.0 - smoothstep(0, 1, t), power)
+			offsets.append(t)
+			colors.append(Color(1, 1, 1, a))
+		# Make sure the edge is fully transparent
+		colors[steps] = Color(1, 1, 1, 0)
+
+		gradient.offsets = offsets
+		gradient.colors = colors
+
+		_light_texture = GradientTexture2D.new()
+		_light_texture.gradient = gradient
+		_light_texture.fill = GradientTexture2D.FILL_RADIAL
+		_light_texture.fill_from = Vector2(0.5, 0.5)
+		_light_texture.fill_to = Vector2(1.0, 0.5)
+		_light_texture.width = LIGHT_TEXTURE_SIZE
+		_light_texture.height = LIGHT_TEXTURE_SIZE
+	return _light_texture
