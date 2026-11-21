@@ -22,7 +22,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vboe8"]
-
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962 node_paths=PackedStringArray("animation_player")]
 collision_mask = 4
 script = ExtResource("1_5p0pn")
@@ -37,6 +36,9 @@ shape = SubResource("CapsuleShape2D_vboe8")
 
 [node name="Light" type="PointLight2D" parent="." unique_id=2122459108]
 scale = Vector2(0.99999994, 0.99999994)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_5p0pn")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1406851156]

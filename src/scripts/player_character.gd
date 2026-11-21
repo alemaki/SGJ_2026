@@ -7,6 +7,12 @@ extends CharacterBody2D
 
 # Illumination settings
 @export var illuminate_cooldown: float = 1.5
+
+const RING_TEXTURE_SIZE := 256
+const RING_MIN_SCALE := 0.01
+
+var _illuminate_cooldown_left: float = 0.0
+
 @export var light_radius: float = 750.0
 @export var light_energy: float = 1
 @export var light_grow_duration: float = 1.1
@@ -22,11 +28,10 @@ var _light_texture: GradientTexture2D
 var _light: PointLight2D
 var _light_tween: Tween
 var _light_on := false
-var _illuminate_cooldown_left: float = 0.0
 
 @export var animation_player: AnimatedSprite2D = null
 
-@onready var interactable_sensor: InteractableSensor = %InteractableSensor
+@onready var interactable_sensor: InteractableSensor = $InteractableSensor
 
 func _handle_animations(input_dir: Vector2) -> void:
 	if velocity == Vector2.ZERO:
