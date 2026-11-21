@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://cdrrapn77i8p8"]
+
+[ext_resource type="Script" uid="uid://by8itc5vmqjvl" path="res://src/scripts/ui/godess_progress.gd" id="1_3i35c"]
+[ext_resource type="Texture2D" uid="uid://duipi51yumd0y" path="res://assets/art/ui/placeholder/test_vitraj.png" id="2_xkyxr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlerv"]
+atlas = ExtResource("2_xkyxr")
+region = Rect2(0, 2560, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i35c"]
+atlas = ExtResource("2_xkyxr")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkyxr"]
+atlas = ExtResource("2_xkyxr")
+region = Rect2(0, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c766s"]
+atlas = ExtResource("2_xkyxr")
+region = Rect2(0, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0lms"]
+atlas = ExtResource("2_xkyxr")
+region = Rect2(0, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17lwr"]
+atlas = ExtResource("2_xkyxr")
+region = Rect2(0, 1024, 128, 256)
+
+[node name="GodessProgress" type="Control" unique_id=1386638537]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3i35c")
+collected_gems = 12
+start_hidden = false
+
+[node name="Frames" type="TextureProgressBar" parent="." unique_id=445106311]
+layout_mode = 1
+offset_right = 536.0
+offset_bottom = 1072.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_nlerv")
+
+[node name="First" type="TextureProgressBar" parent="Frames" unique_id=1620065718]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 4.0
+value = 4.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_3i35c")
+
+[node name="Second" type="TextureProgressBar" parent="Frames" unique_id=1284625765]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 4.0
+max_value = 8.0
+step = 5.0
+value = 8.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_xkyxr")
+
+[node name="Second2" type="TextureProgressBar" parent="Frames" unique_id=1995425338]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 8.0
+max_value = 12.0
+value = 12.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_c766s")
+
+[node name="Second3" type="TextureProgressBar" parent="Frames" unique_id=1721801148]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 12.0
+max_value = 16.0
+value = 12.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_f0lms")
+
+[node name="Second4" type="TextureProgressBar" parent="Frames" unique_id=391070500]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+min_value = 16.0
+max_value = 20.0
+value = 16.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_17lwr")
