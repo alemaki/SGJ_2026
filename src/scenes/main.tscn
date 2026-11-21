@@ -16,3 +16,5 @@ metadata/_custom_type_script = "uid://doe2ej3rd5bym"
 position = Vector2(16, 16)
 scale = Vector2(0.3, 0.3)
 speed = 50.0
+
+[connection signal="player_death" from="PlayerCharacter" to="." method="_on_player_character_player_death"]

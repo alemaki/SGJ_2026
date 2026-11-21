@@ -23,6 +23,7 @@ var _illuminate_cooldown_left: float = 0.0
 
 @export var animation_player: AnimatedSprite2D = null
 @export var obsession_bar: ObsessionBar = null
+@export var score_tracker: ScoreTracker = null
 
 const LIGHT_TEXTURE_SIZE := 256
 const LIGHT_MIN_SCALE := 0.01
@@ -31,6 +32,8 @@ var _light_texture: GradientTexture2D
 var _light: PointLight2D
 var _light_tween: Tween
 var _light_on := false
+
+signal player_death(final_score)
 
 func _ready() -> void:
 	obsession_bar.resume_progress()
@@ -170,3 +173,6 @@ func _get_light_texture() -> GradientTexture2D:
 		_light_texture.width = LIGHT_TEXTURE_SIZE
 		_light_texture.height = LIGHT_TEXTURE_SIZE
 	return _light_texture
+
+func _on_obsession_bar_obsession_filled() -> void:
+	player_death.emit(score_tracker.current_score)

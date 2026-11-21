@@ -6,18 +6,18 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8flyr")
-bar = NodePath("CanvasLayer/ProgressBar")
+bar = NodePath("ProgressBar")
 scaling_type = 2
 metadata/_custom_type_script = "uid://cefrtvnxxq8x7"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=459383017]
-
-[node name="Bar" type="TextureProgressBar" parent="CanvasLayer" unique_id=946833784]
+[node name="Bar" type="TextureProgressBar" parent="." unique_id=946833784]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 fill_mode = 3
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=895119996]
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=895119996]
 custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
 offset_right = 300.0
 offset_bottom = 50.0

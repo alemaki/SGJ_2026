@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://vjsabb5c7hgm" path="res://src/scripts/player_character.gd" id="1_5p0pn"]
 [ext_resource type="SpriteFrames" uid="uid://cx86j1j12tj1f" path="res://src/resources/walking_animations.tres" id="2_5p0pn"]
 [ext_resource type="PackedScene" uid="uid://cie3uytpw1f08" path="res://src/scenes/obsession_bar.tscn" id="3_acxgf"]
+[ext_resource type="PackedScene" uid="uid://cxsebvuijxy7g" path="res://src/scenes/score.tscn" id="4_1hvy0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vboe8"]
 height = 40.0
@@ -20,11 +21,12 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.3)
 
-[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962 node_paths=PackedStringArray("animation_player", "obsession_bar")]
+[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962 node_paths=PackedStringArray("animation_player", "obsession_bar", "score_tracker")]
 collision_mask = 4
 script = ExtResource("1_5p0pn")
 animation_player = NodePath("Body")
 obsession_bar = NodePath("Camera/ObsessionBar")
+score_tracker = NodePath("Camera/ScoreTracker")
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=2139457209]
 sprite_frames = ExtResource("2_5p0pn")
@@ -55,3 +57,10 @@ offset_top = -50.0
 offset_right = -90.0
 offset_bottom = -50.0
 scale = Vector2(0.2, 0.2)
+
+[node name="ScoreTracker" parent="Camera" unique_id=1147881918 instance=ExtResource("4_1hvy0")]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(0.2, 0.2)
+
+[connection signal="obsession_filled" from="Camera/ObsessionBar" to="." method="_on_obsession_bar_obsession_filled"]
