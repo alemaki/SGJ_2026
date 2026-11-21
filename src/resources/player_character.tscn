@@ -33,6 +33,9 @@ shape = SubResource("CapsuleShape2D_vboe8")
 
 [node name="Light" type="PointLight2D" parent="." unique_id=2122459108]
 scale = Vector2(0.99999994, 0.99999994)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_5p0pn")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1406851156]
