@@ -2,6 +2,8 @@
 class_name InteractableSensor
 extends Area2D
 
+signal on_interaction_performed(animation_name: StringName, interactor: Interactable)
+
 var _interactable_candidates: Array[Interactable] = []
 
 func _ready() -> void:
@@ -29,6 +31,7 @@ func request_interaction() -> bool:
 			
 	if current_best_interactable.can_interact(get_parent()):
 		current_best_interactable.interact(get_parent())
+		on_interaction_performed.emit(current_best_interactable.interaction_animation, current_best_interactable)
 		return true
 	else:
 		return false;
