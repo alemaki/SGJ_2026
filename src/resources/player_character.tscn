@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://brnn0mkes1n6e"]
 
 [ext_resource type="Script" uid="uid://vjsabb5c7hgm" path="res://src/scripts/player_character.gd" id="1_5p0pn"]
-[ext_resource type="Texture2D" uid="uid://csxyx5wea4ot8" path="res://icon.svg" id="1_5ywhm"]
+[ext_resource type="SpriteFrames" uid="uid://cx86j1j12tj1f" path="res://src/resources/walking_animations.tres" id="2_5p0pn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vboe8"]
 radius = 8.0
@@ -20,12 +20,14 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.3)
 
-[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962]
+[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_5p0pn")
+animation_player = NodePath("Body")
 
-[node name="Body" type="Sprite2D" parent="." unique_id=493716641]
+[node name="Body" type="AnimatedSprite2D" parent="." unique_id=2139457209]
 scale = Vector2(0.11718754, 0.1640625)
-texture = ExtResource("1_5ywhm")
+sprite_frames = ExtResource("2_5p0pn")
+animation = &"idle"
 
 [node name="CapsuleCollision" type="CollisionShape2D" parent="." unique_id=554669238]
 shape = SubResource("CapsuleShape2D_vboe8")

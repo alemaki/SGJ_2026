@@ -13,14 +13,15 @@ const RING_MIN_SCALE := 0.01
 
 var _illuminate_cooldown_left: float = 0.0
 
-@export var light_radius: float = 750.0          
-@export var light_energy: float = 1         
-@export var light_grow_duration: float = 1.1     
-@export var light_shrink_duration: float = 0.4   
+@export var light_radius: float = 750.0
+@export var light_energy: float = 1
+@export var light_grow_duration: float = 1.1
+@export var light_shrink_duration: float = 0.4
 @export var light_color: Color = Color(1.0, 0.95, 0.7)
 @export_range(0.01, 1.0, 0.01) var light_core_brightness: float = 0.5  # peak at the center (1.0 = full white)
 @export_range(0.0, 1.0, 0.01) var light_falloff_softness: float = 0.5  # 0 = linear, 1 = very soft, wide glow
 
+@export var animation_player: AnimatedSprite2D = null
 
 const LIGHT_TEXTURE_SIZE := 256
 const LIGHT_MIN_SCALE := 0.01
@@ -30,14 +31,26 @@ var _light: PointLight2D
 var _light_tween: Tween
 var _light_on := false
 
-func _physics_process(delta: float) -> void:
+func _handle_animations(input_dir: Vector2) -> void:
+	if velocity == Vector2.ZERO:
+		animation_player.play("idle")
+	else:
+		if input_dir.x < 0:
+			animation_player.play("left")
+		elif input_dir.x > 0:
+			animation_player.play("right")
+		elif input_dir.y < 0:
+			animation_player.play("up")
+		elif input_dir.y > 0:
+			animation_player.play("down")
 
+func _physics_process(delta: float) -> void:
 	# Handling movement
 	var input_dir := Vector2(
 		Input.get_axis("ui_left_device_0", "ui_right_device_0"),
 		Input.get_axis("ui_up_device_0", "ui_down_device_0")
 	)
-	
+
 	input_dir = input_dir.limit_length(1.0)
 
 	if input_dir != Vector2.ZERO:
@@ -46,13 +59,15 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	move_and_slide()
 
+	_handle_animations(input_dir)
+
 	# Hangling Illuminate cooldown
 	_illuminate_cooldown_left = maxf(_illuminate_cooldown_left - delta, 0.0)
 
 	if Input.is_action_just_pressed("ui_accept_device_0") and _illuminate_cooldown_left == 0.0:
 		_toggle_light()
 		_illuminate_cooldown_left = illuminate_cooldown
-		
+
 
 func _toggle_light() -> void:
 	_light_on = not _light_on
