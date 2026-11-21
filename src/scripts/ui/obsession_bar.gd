@@ -13,8 +13,8 @@ var current_score: int = 0
 var pause_timer: bool = true;
 
 const MAX_PROGRESS: float = 100.0
-const EXPONENT_CONSTANT: float = 1.1
-const LOGARITHMIC_BASE: float = 1.1
+const EXPONENT_CONSTANT: float = 1.5
+const LOGARITHMIC_BASE: float = 1.25
 const SCORE_CONVERSION_SCALE: float = 10.0
 
 func _logaritmic_scaling(score: float) -> float:
