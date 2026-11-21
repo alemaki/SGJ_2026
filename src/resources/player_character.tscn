@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://vjsabb5c7hgm" path="res://src/scripts/player_character.gd" id="1_5p0pn"]
 [ext_resource type="SpriteFrames" uid="uid://cx86j1j12tj1f" path="res://src/resources/walking_animations.tres" id="2_5p0pn"]
 [ext_resource type="PackedScene" uid="uid://cie3uytpw1f08" path="res://src/scenes/obsession_bar.tscn" id="3_acxgf"]
+[ext_resource type="Script" uid="uid://dl7pwixi6nmee" path="res://src/scripts/player_camera.gd" id="3_oxmt1"]
 [ext_resource type="PackedScene" uid="uid://cxsebvuijxy7g" path="res://src/scenes/score.tscn" id="4_1hvy0"]
 [ext_resource type="Script" uid="uid://bi4edrwd02i61" path="res://src/scripts/interactable_sensor.gd" id="5_pw81d"]
 
@@ -55,6 +56,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 960
 limit_bottom = 960
+script = ExtResource("3_oxmt1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera" unique_id=1979440990]
 
