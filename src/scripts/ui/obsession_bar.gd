@@ -1,6 +1,7 @@
 extends Control
 class_name ObsessionBar
 
+#NOTE: Switch to the new texture bar after the textures are ready.
 #@export var bar: TextureProgressBar = null
 @export var bar: ProgressBar = null
 
