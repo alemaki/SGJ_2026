@@ -9,8 +9,8 @@ anchors_preset = 0
 offset_left = 6.0
 offset_right = 6.0
 script = ExtResource("1_honyi")
-logarithmic_bar = NodePath("ObsessionBar")
-linear_bar = NodePath("ObsessionBar2")
+logarithmic_bar = NodePath("ObsessionBar2")
+linear_bar = NodePath("ObsessionBar")
 exponential_bar = NodePath("ObsessionBar3")
 timer = NodePath("Timer")
 
