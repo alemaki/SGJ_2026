@@ -40,6 +40,7 @@ signal player_death(final_score)
 
 func _ready() -> void:
 	obsession_bar.resume_progress()
+	interactable_sensor.on_interaction_performed.connect(_play_interaction_animation)
 
 func _handle_animations(input_dir: Vector2) -> void:
 	if velocity == Vector2.ZERO:
@@ -54,8 +55,6 @@ func _handle_animations(input_dir: Vector2) -> void:
 		elif input_dir.y > 0:
 			animation_player.play("down")
 			
-func _ready() -> void:
-	interactable_sensor.on_interaction_performed.connect(_play_interaction_animation)
 
 	
 func _physics_process(delta: float) -> void:
@@ -190,7 +189,6 @@ func _get_light_texture() -> GradientTexture2D:
 		_light_texture.width = LIGHT_TEXTURE_SIZE
 		_light_texture.height = LIGHT_TEXTURE_SIZE
 	return _light_texture
-<<<<<<< HEAD
 	
 func _play_interaction_animation(animation_name: StringName, interactable: Interactable):
 	assert(animation_player.has_animation(animation_name))
@@ -202,9 +200,6 @@ func _release_input():
 	animation_player.animation_finished.disconnect(_release_input)
 	_is_input_allowed = true;
 
-	
-=======
 
 func _on_obsession_bar_obsession_filled() -> void:
 	player_death.emit(score_tracker.current_score)
->>>>>>> origin
