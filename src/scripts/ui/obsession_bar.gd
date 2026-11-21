@@ -7,25 +7,24 @@ class_name ObsessionBar
 enum PROGRESS_SCALING {LOGARITHMIC, LINEAR, EXPONENTIAL};
 @export var scaling_type: PROGRESS_SCALING = PROGRESS_SCALING.LOGARITHMIC
 
-@export var max_scaling_value: float = 10.0
-
 var current_progress: float = 0.0
 # Current score needed because of the progression function.
 var current_score: int = 0
 var pause_timer: bool = true;
 
 const MAX_PROGRESS: float = 100.0
-const EXPONENT_CONSTANT: float = 1.2
-const LOGARITHMIC_BASE: float = 2
+const EXPONENT_CONSTANT: float = 1.1
+const LOGARITHMIC_BASE: float = 1.1
+const SCORE_CONVERSION_SCALE: float = 10.0
 
-func _logaritmic_scaling() -> float:
-	return log(current_score) / log(LOGARITHMIC_BASE)
+func _logaritmic_scaling(score: float) -> float:
+	return log(score) / log(LOGARITHMIC_BASE)
 
-func _linear_scaling() -> float:
-	return current_score
+func _linear_scaling(score: float) -> float:
+	return score
 
-func _exponential_scaling() -> float:
-	return current_score ** EXPONENT_CONSTANT
+func _exponential_scaling(score: float) -> float:
+	return score ** EXPONENT_CONSTANT
 
 func set_progress(new_progress: float) -> void:
 	current_progress = new_progress
@@ -52,15 +51,15 @@ func set_progressing_enabled(new_enabled: bool) -> void:
 
 func scale(passed_time: float) -> float:
 	var scaling_constant: float = 0.0
+	var converted_score: float = current_score / SCORE_CONVERSION_SCALE
 	match scaling_type:
 		PROGRESS_SCALING.LOGARITHMIC:
-			scaling_constant = _logaritmic_scaling()
+			scaling_constant = _logaritmic_scaling(converted_score)
 		PROGRESS_SCALING.LINEAR:
-			scaling_constant = _linear_scaling()
+			scaling_constant = _linear_scaling(converted_score)
 		PROGRESS_SCALING.EXPONENTIAL:
-			scaling_constant = _exponential_scaling()
+			scaling_constant = _exponential_scaling(converted_score)
 	var final_scaling = scaling_constant * passed_time
-	#clamp(final_scaling, 0, max_scaling_value)
 	return final_scaling
 
 func _ready() -> void:
