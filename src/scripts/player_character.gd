@@ -7,12 +7,6 @@ extends CharacterBody2D
 
 # Illumination settings
 @export var illuminate_cooldown: float = 1.5
-
-const RING_TEXTURE_SIZE := 256
-const RING_MIN_SCALE := 0.01
-
-var _illuminate_cooldown_left: float = 0.0
-
 @export var light_radius: float = 750.0
 @export var light_energy: float = 1
 @export var light_grow_duration: float = 1.1
@@ -21,8 +15,6 @@ var _illuminate_cooldown_left: float = 0.0
 @export_range(0.01, 1.0, 0.01) var light_core_brightness: float = 0.5  # peak at the center (1.0 = full white)
 @export_range(0.0, 1.0, 0.01) var light_falloff_softness: float = 0.5  # 0 = linear, 1 = very soft, wide glow
 
-@export var animation_player: AnimatedSprite2D = null
-
 const LIGHT_TEXTURE_SIZE := 256
 const LIGHT_MIN_SCALE := 0.01
 
@@ -30,6 +22,11 @@ var _light_texture: GradientTexture2D
 var _light: PointLight2D
 var _light_tween: Tween
 var _light_on := false
+var _illuminate_cooldown_left: float = 0.0
+
+@export var animation_player: AnimatedSprite2D = null
+
+@onready var interactable_sensor: InteractableSensor = %InteractableSensor
 
 func _handle_animations(input_dir: Vector2) -> void:
 	if velocity == Vector2.ZERO:
@@ -68,6 +65,11 @@ func _physics_process(delta: float) -> void:
 		_toggle_light()
 		_illuminate_cooldown_left = illuminate_cooldown
 
+	# Handle interaction
+	if Input.is_action_just_pressed("ui_back_device_0"):
+		if interactable_sensor.request_interaction():
+			# Play pick up animation or whatever
+			pass
 
 func _toggle_light() -> void:
 	_light_on = not _light_on

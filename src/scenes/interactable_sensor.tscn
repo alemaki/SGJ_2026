@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d0r45wnm6vq6q"]
+
+[ext_resource type="Script" uid="uid://bi4edrwd02i61" path="res://src/scripts/interactable_sensor.gd" id="1_dk4um"]
+
+[node name="Node2D" type="Area2D" unique_id=1937144485]
+script = ExtResource("1_dk4um")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://kgddrxjowpu1"]
+
+[ext_resource type="Script" uid="uid://75bd82uxuxog" path="res://src/scripts/interactable.gd" id="1_oo1dv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oo1dv"]
+
+[node name="GemBody" type="AnimatedSprite2D" unique_id=1697653208]
+
+[node name="Interactable" type="Area2D" parent="." unique_id=2064250558]
+script = ExtResource("1_oo1dv")
+metadata/_custom_type_script = "uid://75bd82uxuxog"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1911000667]
+shape = SubResource("CircleShape2D_oo1dv")

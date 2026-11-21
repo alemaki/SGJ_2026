@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://vjsabb5c7hgm" path="res://src/scripts/player_character.gd" id="1_5p0pn"]
 [ext_resource type="SpriteFrames" uid="uid://cx86j1j12tj1f" path="res://src/resources/walking_animations.tres" id="2_5p0pn"]
+[ext_resource type="Script" uid="uid://bi4edrwd02i61" path="res://src/scripts/interactable_sensor.gd" id="3_acxgf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vboe8"]
+radius = 8.0
 height = 40.0
 
 [sub_resource type="Gradient" id="Gradient_mxi56"]
@@ -19,6 +21,8 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.3)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vboe8"]
+
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962 node_paths=PackedStringArray("animation_player")]
 collision_mask = 4
 script = ExtResource("1_5p0pn")
@@ -28,7 +32,7 @@ animation_player = NodePath("Body")
 sprite_frames = ExtResource("2_5p0pn")
 animation = &"idle"
 
-[node name="CapsuleCollision" type="CollisionShape2D" parent="." unique_id=554669238]
+[node name="CharacterCollision" type="CollisionShape2D" parent="." unique_id=554669238]
 shape = SubResource("CapsuleShape2D_vboe8")
 
 [node name="Light" type="PointLight2D" parent="." unique_id=2122459108]
@@ -37,3 +41,11 @@ texture = SubResource("GradientTexture2D_5p0pn")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1406851156]
 zoom = Vector2(5, 5)
+
+[node name="InteractableSensor" type="Area2D" parent="." unique_id=492526081]
+script = ExtResource("3_acxgf")
+metadata/_custom_type_script = "uid://bi4edrwd02i61"
+
+[node name="InteractableCollision" type="CollisionShape2D" parent="InteractableSensor" unique_id=1806190411]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_vboe8")
