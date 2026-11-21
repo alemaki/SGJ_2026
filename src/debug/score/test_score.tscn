@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bv1cpsrii6tqu"]
+
+[ext_resource type="Script" uid="uid://boxqqojghe70k" path="res://src/debug/score_increaser.gd" id="1_2edcc"]
+[ext_resource type="PackedScene" uid="uid://cxsebvuijxy7g" path="res://src/scenes/score.tscn" id="2_1ta3p"]
+
+[node name="TestScore" type="Node2D" unique_id=1646347795 node_paths=PackedStringArray("increase_timer", "score_control")]
+script = ExtResource("1_2edcc")
+increase_timer = NodePath("Timer")
+score_control = NodePath("ScoreTracker")
+
+[node name="ScoreTracker" parent="." unique_id=1147881918 instance=ExtResource("2_1ta3p")]
+
+[node name="Timer" type="Timer" parent="." unique_id=2010349533]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
