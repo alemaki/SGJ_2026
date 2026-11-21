@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://vjsabb5c7hgm" path="res://src/scripts/player_character.gd" id="1_5p0pn"]
 [ext_resource type="SpriteFrames" uid="uid://cx86j1j12tj1f" path="res://src/resources/walking_animations.tres" id="2_5p0pn"]
-[ext_resource type="Script" uid="uid://bi4edrwd02i61" path="res://src/scripts/interactable_sensor.gd" id="3_acxgf"]
+[ext_resource type="PackedScene" uid="uid://cie3uytpw1f08" path="res://src/scenes/obsession_bar.tscn" id="3_acxgf"]
+[ext_resource type="PackedScene" uid="uid://cxsebvuijxy7g" path="res://src/scenes/score.tscn" id="4_1hvy0"]
+[ext_resource type="Script" uid="uid://bi4edrwd02i61" path="res://src/scripts/interactable_sensor.gd" id="5_pw81d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vboe8"]
 radius = 8.0
@@ -21,11 +23,12 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.3)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vboe8"]
-[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962 node_paths=PackedStringArray("animation_player")]
+[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962 node_paths=PackedStringArray("animation_player", "obsession_bar", "score_tracker")]
 collision_mask = 4
 script = ExtResource("1_5p0pn")
 animation_player = NodePath("Body")
+obsession_bar = NodePath("Camera/CanvasLayer/ObsessionBar")
+score_tracker = NodePath("Camera/CanvasLayer/MarginContainer/ScoreTracker")
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=2139457209]
 sprite_frames = ExtResource("2_5p0pn")
@@ -42,12 +45,37 @@ shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_5p0pn")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1406851156]
-zoom = Vector2(5, 5)
+zoom = Vector2(10, 10)
+limit_left = 0
+limit_top = 0
+limit_right = 960
+limit_bottom = 960
 
-[node name="InteractableSensor" type="Area2D" parent="." unique_id=492526081]
-script = ExtResource("3_acxgf")
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera" unique_id=1979440990]
+
+[node name="ObsessionBar" parent="Camera/CanvasLayer" unique_id=1566583181 instance=ExtResource("3_acxgf")]
+light_mask = 2
+visibility_layer = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera/CanvasLayer" unique_id=1159624837]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -216.0
+offset_bottom = 89.0
+grow_horizontal = 0
+
+[node name="ScoreTracker" parent="Camera/CanvasLayer/MarginContainer" unique_id=1147881918 instance=ExtResource("4_1hvy0")]
+light_mask = 2
+visibility_layer = 2
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+
+[node name="InteractableSensor" type="Area2D" parent="." unique_id=1111991030]
+script = ExtResource("5_pw81d")
 metadata/_custom_type_script = "uid://bi4edrwd02i61"
 
-[node name="InteractableCollision" type="CollisionShape2D" parent="InteractableSensor" unique_id=1806190411]
-scale = Vector2(3, 3)
-shape = SubResource("CircleShape2D_vboe8")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableSensor" unique_id=1830075891]
+
+[connection signal="obsession_filled" from="Camera/CanvasLayer/ObsessionBar" to="." method="_on_obsession_bar_obsession_filled"]
