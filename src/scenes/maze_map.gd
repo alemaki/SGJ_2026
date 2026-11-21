@@ -154,7 +154,7 @@ func draw_maze() -> void:
 			if map[y][x] == MazePart.WALL:
 				wall_cells.append(pos)
 			else:
-				path_cells.append(pos)
+				ground_cells.append(pos)
 				for neigh: Vector2i in self.get_neighbours(pos, 1, true):
 					ground_cells.append(neigh)
 	wall_tile_map.set_cells_terrain_connect(wall_cells, 0, 0)
