@@ -1,3 +1,4 @@
+@tool
 extends Node
 class_name MazeGenerator
 
@@ -154,9 +155,10 @@ func draw_maze() -> void:
 			if map[y][x] == MazePart.WALL:
 				wall_cells.append(pos)
 			else:
-				ground_cells.append(pos)
+				path_cells.append(pos)
 				for neigh: Vector2i in self.get_neighbours(pos, 1, true):
-					ground_cells.append(neigh)
+					for neigh2: Vector2i in self.get_neighbours(neigh, 1, true):
+						ground_cells.append(neigh2)
 	wall_tile_map.set_cells_terrain_connect(wall_cells, 0, 0)
 	ground_tile_map.set_cells_terrain_connect(ground_cells, 0, 1)
 	ground_tile_map.set_cells_terrain_connect(path_cells, 0, 2)
