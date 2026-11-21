@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cxsebvuijxy7g"]
+
+[ext_resource type="Script" uid="uid://dqpw2h5t8isbo" path="res://src/scripts/ui/score_tracker.gd" id="1_6m6mr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xhlbo"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_6m6mr"]
+font_size = 30
+
+[node name="ScoreTracker" type="Control" unique_id=1147881918 node_paths=PackedStringArray("score_label")]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6m6mr")
+score_label = NodePath("ScoreLabel")
+metadata/_custom_type_script = "uid://dqpw2h5t8isbo"
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=60989852]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 2.0
+offset_right = 133.0
+offset_bottom = 44.0
+label_settings = SubResource("LabelSettings_xhlbo")
+
+[node name="Name" type="Label" parent="." unique_id=968122964]
+layout_mode = 0
+offset_right = 25.0
+offset_bottom = 23.0
+text = "Score: "
+label_settings = SubResource("LabelSettings_6m6mr")
