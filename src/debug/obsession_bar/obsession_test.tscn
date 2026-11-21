@@ -62,3 +62,6 @@ offset_bottom = 190.0
 text = "Exponent"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="obsession_filled" from="ObsessionBar" to="." method="_on_obsession_bar_obsession_filled_linear"]
+[connection signal="obsession_filled" from="ObsessionBar2" to="." method="_on_obsession_bar_2_obsession_filled_logarithm"]
+[connection signal="obsession_filled" from="ObsessionBar3" to="." method="_on_obsession_bar_3_obsession_filled_exponent"]
