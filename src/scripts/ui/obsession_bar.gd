@@ -14,18 +14,20 @@ var current_score: int = 0
 var pause_timer: bool = true;
 
 const MAX_PROGRESS: float = 100.0
-const EXPONENT_CONSTANT: float = 1.5
-const LOGARITHMIC_BASE: float = 1.25
-const SCORE_CONVERSION_SCALE: float = 10.0
+@export var exponent_constant: float = 1.05
+@export var logarithmic_base: float = 1.5
+@export var score_conversion_scale: float = 1.0
+
+signal obsession_filled
 
 func _logaritmic_scaling(score: float) -> float:
-	return log(score) / log(LOGARITHMIC_BASE)
+	return log(score) / log(logarithmic_base)
 
 func _linear_scaling(score: float) -> float:
 	return score
 
 func _exponential_scaling(score: float) -> float:
-	return score ** EXPONENT_CONSTANT
+	return score ** exponent_constant
 
 func set_progress(new_progress: float) -> void:
 	current_progress = new_progress
@@ -52,7 +54,7 @@ func set_progressing_enabled(new_enabled: bool) -> void:
 
 func scale(passed_time: float) -> float:
 	var scaling_constant: float = 0.0
-	var converted_score: float = current_score / SCORE_CONVERSION_SCALE
+	var converted_score: float = current_score / score_conversion_scale
 	match scaling_type:
 		PROGRESS_SCALING.LOGARITHMIC:
 			scaling_constant = _logaritmic_scaling(converted_score)
@@ -69,3 +71,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not pause_timer:
 		bar.value += scale(delta)
+		if is_equal_approx(bar.value, bar.max_value):
+			obsession_filled.emit()
+			pause_timer = true
