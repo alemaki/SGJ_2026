@@ -21,6 +21,10 @@ var _illuminate_cooldown_left: float = 0.0
 @export_range(0.01, 1.0, 0.01) var light_core_brightness: float = 0.5  # peak at the center (1.0 = full white)
 @export_range(0.0, 1.0, 0.01) var light_falloff_softness: float = 0.5  # 0 = linear, 1 = very soft, wide glow
 
+@export var animation_player: AnimatedSprite2D = null
+@export var obsession_bar: ObsessionBar = null
+@export var score_tracker: ScoreTracker = null
+
 const LIGHT_TEXTURE_SIZE := 256
 const LIGHT_MIN_SCALE := 0.01
 
@@ -29,9 +33,12 @@ var _light: PointLight2D
 var _light_tween: Tween
 var _light_on := false
 
-@export var animation_player: AnimatedSprite2D = null
-
 @onready var interactable_sensor: InteractableSensor = $InteractableSensor
+
+signal player_death(final_score)
+
+func _ready() -> void:
+	obsession_bar.resume_progress()
 
 func _handle_animations(input_dir: Vector2) -> void:
 	if velocity == Vector2.ZERO:
@@ -173,3 +180,6 @@ func _get_light_texture() -> GradientTexture2D:
 		_light_texture.width = LIGHT_TEXTURE_SIZE
 		_light_texture.height = LIGHT_TEXTURE_SIZE
 	return _light_texture
+
+func _on_obsession_bar_obsession_filled() -> void:
+	player_death.emit(score_tracker.current_score)

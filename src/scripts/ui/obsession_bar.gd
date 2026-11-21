@@ -17,6 +17,7 @@ const MAX_PROGRESS: float = 100.0
 @export var exponent_constant: float = 1.05
 @export var logarithmic_base: float = 1.5
 @export var score_conversion_scale: float = 1.0
+@export var min_obsession_progress: float = 1.0
 
 signal obsession_filled
 
@@ -54,7 +55,7 @@ func set_progressing_enabled(new_enabled: bool) -> void:
 
 func scale(passed_time: float) -> float:
 	var scaling_constant: float = 0.0
-	var converted_score: float = current_score / score_conversion_scale
+	var converted_score: float = max(current_score, min_obsession_progress) / score_conversion_scale
 	match scaling_type:
 		PROGRESS_SCALING.LOGARITHMIC:
 			scaling_constant = _logaritmic_scaling(converted_score)
