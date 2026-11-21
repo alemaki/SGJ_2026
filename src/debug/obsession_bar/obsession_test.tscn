@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bgcyi2yj1neit"]
+
+[ext_resource type="PackedScene" uid="uid://cie3uytpw1f08" path="res://src/scenes/obsession_bar.tscn" id="1_5dud1"]
+[ext_resource type="Script" uid="uid://c86n666241ylh" path="res://src/debug/obsession_bar/obsession_test.gd" id="1_honyi"]
+
+[node name="ObsessionTest" type="Control" unique_id=1271409587 node_paths=PackedStringArray("bar", "timer")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 6.0
+offset_right = 6.0
+script = ExtResource("1_honyi")
+bar = NodePath("ObsessionBar")
+timer = NodePath("Timer")
+
+[node name="ObsessionBar" parent="." unique_id=1566583181 instance=ExtResource("1_5dud1")]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 73.0
+offset_right = 69.0
+offset_bottom = 73.0
+scaling_type = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=236235721]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
