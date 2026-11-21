@@ -7,6 +7,19 @@
 radius = 8.0
 height = 26.0
 
+[sub_resource type="Gradient" id="Gradient_mxi56"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.35729614, 0.996114)
+colors = PackedColorArray(1, 0.9776916, 0.85430586, 0.2, 1, 0.97633153, 0.8548469, 0.17, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5p0pn"]
+gradient = SubResource("Gradient_mxi56")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.3)
+
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962]
 script = ExtResource("1_5p0pn")
 
@@ -16,3 +29,9 @@ texture = ExtResource("1_5ywhm")
 
 [node name="CapsuleCollision" type="CollisionShape2D" parent="." unique_id=554669238]
 shape = SubResource("CapsuleShape2D_vboe8")
+
+[node name="Light" type="PointLight2D" parent="." unique_id=2122459108]
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_5p0pn")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1406851156]
