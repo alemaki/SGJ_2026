@@ -1,3 +1,18 @@
 [gd_scene format=3 uid="uid://6i4wvqgl5yp"]
 
-[node name="Main" type="Node" unique_id=1803449423]
+[ext_resource type="Script" uid="uid://doe2ej3rd5bym" path="res://src/scripts/main.gd" id="1_32aa5"]
+[ext_resource type="PackedScene" uid="uid://bpcshe21wsqgu" path="res://src/scenes/map.tscn" id="1_rr2wm"]
+[ext_resource type="PackedScene" uid="uid://brnn0mkes1n6e" path="res://src/resources/player_character.tscn" id="2_32aa5"]
+
+[node name="Main" type="Node" unique_id=215710750 node_paths=PackedStringArray("player", "mapNode")]
+script = ExtResource("1_32aa5")
+player = NodePath("PlayerCharacter")
+mapNode = NodePath("Map")
+metadata/_custom_type_script = "uid://doe2ej3rd5bym"
+
+[node name="Map" parent="." unique_id=525434512 instance=ExtResource("1_rr2wm")]
+
+[node name="PlayerCharacter" parent="." unique_id=1915261962 instance=ExtResource("2_32aa5")]
+position = Vector2(16, 16)
+scale = Vector2(0.3, 0.3)
+speed = 50.0
