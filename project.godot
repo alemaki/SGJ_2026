@@ -33,7 +33,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dho_arcade_addon/plugin.cfg")
+enabled=PackedStringArray("res://addons/dho_arcade_addon/plugin.cfg", "res://addons/godot_nvim/plugin.cfg")
 
 [input]
 
