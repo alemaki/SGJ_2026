@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 # Movement settings
-@export var speed: float = 200.0
-@export var acceleration: float = 1500.0
-@export var friction: float = 1200.0
+@export var speed: float = 50.0
+@export var acceleration: float = 120.0
+@export var friction: float = 300.0
 
 # Illumination settings
 @export var illuminate_cooldown: float = 1.5
@@ -191,7 +191,6 @@ func _get_light_texture() -> GradientTexture2D:
 	return _light_texture
 	
 func _play_interaction_animation(animation_name: StringName, interactable: Interactable):
-	assert(animation_player.has_animation(animation_name))
 	_is_input_allowed = false
 	animation_player.animation_finished.connect(_release_input)
 	animation_player.play(animation_name)
