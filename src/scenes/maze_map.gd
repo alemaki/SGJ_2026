@@ -1,17 +1,11 @@
-@tool
-
 extends Node
 class_name MazeGenerator
 
 @export var wall_tile_map: TileMapLayer = null
 @export var ground_tile_map: TileMapLayer = null
 
-@export_range(1, 100, 1) var size_columns: int = 50:
-	set(value):
-		size_columns = value
-		self._ready()
-
-@export_range(1, 100, 1)  var size_rows: int = 50
+@export_range(1, 100, 1) var size_columns: int = 80
+@export_range(1, 100, 1)  var size_rows: int = 80
 
 @export_range(10, INF, 1) var min_stack_size: int = 10
 @export_range(0, 1) var path_give_up_chance: float = 0.008
@@ -19,7 +13,7 @@ class_name MazeGenerator
 
 @export var starting_point = Vector2i(2, 2)
 
-@export_range(1, INF, 1) var neighbour_distance: int = 2
+@export_range(1, INF, 1) var neighbour_distance: int = 3
 
 var map: Array[Array] = []
 
@@ -36,11 +30,12 @@ func is_wall(pos: Vector2i) -> bool:
 
 
 func initialise_map() -> void:
-	self.map.clear()
-	self.map.resize(self.size_rows + neighbour_distance)
-	for row: Array[MazePart] in self.map:
-		row.resize(self.size_columns + neighbour_distance)
+	map.clear()
+	for y in range(size_rows + neighbour_distance):
+		var row: Array[int] = []
+		row.resize(size_columns + neighbour_distance)
 		row.fill(MazePart.WALL)
+		map.append(row)
 
 func is_close_neighbour(
 		pos1: Vector2i,
@@ -146,14 +141,22 @@ func _ready() -> void:
 	self.draw_maze()
 
 func draw_maze() -> void:
-	assert(self.wall_tile_map != null)
-	assert(self.ground_tile_map != null)
-	self.wall_tile_map.clear()
-	self.ground_tile_map.clear()
-	for y in range(map.size()):
-		for x in range(map[y].size()):
-			var wall_tile := Vector2i(1, 1)
-			var empty_tile := Vector2i(1, 4)
-			if self.map[y][x] == MazePart.WALL:
-				self.wall_tile_map.set_cell(Vector2i(x, y), 0, wall_tile)
-			self.ground_tile_map.set_cell(Vector2i(x, y), 0, empty_tile)
+	assert(wall_tile_map != null)
+	assert(ground_tile_map != null)
+	wall_tile_map.clear()
+	ground_tile_map.clear()
+	var wall_cells: Array[Vector2i] = []
+	var ground_cells: Array[Vector2i] = []
+	var path_cells: Array[Vector2i] = []
+	for y in range(-self.neighbour_distance, size_rows + self.neighbour_distance):
+		for x in range(-self.neighbour_distance, size_columns + self.neighbour_distance):
+			var pos := Vector2i(x, y)
+			if map[y][x] == MazePart.WALL:
+				wall_cells.append(pos)
+			else:
+				path_cells.append(pos)
+				for neigh: Vector2i in self.get_neighbours(pos, 1, true):
+					ground_cells.append(neigh)
+	wall_tile_map.set_cells_terrain_connect(wall_cells, 0, 0)
+	ground_tile_map.set_cells_terrain_connect(ground_cells, 0, 1)
+	ground_tile_map.set_cells_terrain_connect(path_cells, 0, 2)
