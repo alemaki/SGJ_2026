@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 # Movement settings
-@export var speed: float = 200.0
-@export var acceleration: float = 1500.0
-@export var friction: float = 1200.0
+@export var speed: float = 50.0
+@export var acceleration: float = 120.0
+@export var friction: float = 300.0
 
 # Illumination settings
 @export var illuminate_cooldown: float = 1.5
@@ -22,6 +22,8 @@ var _illuminate_cooldown_left: float = 0.0
 @export_range(0.0, 1.0, 0.01) var light_falloff_softness: float = 0.5  # 0 = linear, 1 = very soft, wide glow
 
 @export var animation_player: AnimatedSprite2D = null
+@export var obsession_bar: ObsessionBar = null
+@export var score_tracker: ScoreTracker = null
 
 const LIGHT_TEXTURE_SIZE := 256
 const LIGHT_MIN_SCALE := 0.01
@@ -30,6 +32,15 @@ var _light_texture: GradientTexture2D
 var _light: PointLight2D
 var _light_tween: Tween
 var _light_on := false
+var _is_input_allowed := true;
+
+@onready var interactable_sensor: InteractableSensor = $InteractableSensor
+
+signal player_death(final_score)
+
+func _ready() -> void:
+	obsession_bar.resume_progress()
+	interactable_sensor.on_interaction_performed.connect(_play_interaction_animation)
 
 func _handle_animations(input_dir: Vector2) -> void:
 	if velocity == Vector2.ZERO:
@@ -43,8 +54,13 @@ func _handle_animations(input_dir: Vector2) -> void:
 			animation_player.play("up")
 		elif input_dir.y > 0:
 			animation_player.play("down")
+			
 
+	
 func _physics_process(delta: float) -> void:
+	if not _is_input_allowed:
+		return;
+	
 	# Handling movement
 	var input_dir := Vector2(
 		Input.get_axis("ui_left_device_0", "ui_right_device_0"),
@@ -67,6 +83,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept_device_0") and _illuminate_cooldown_left == 0.0:
 		_toggle_light()
 		_illuminate_cooldown_left = illuminate_cooldown
+
+	# Handle interaction
+	if Input.is_action_just_pressed("ui_back_device_0"):
+		if interactable_sensor.request_interaction():
+			# Play pick up animation or whatever
+			pass
 
 
 func _toggle_light() -> void:
@@ -130,13 +152,14 @@ func _light_progress() -> float:
 	return clampf(
 		inverse_lerp(LIGHT_MIN_SCALE, _light_target_scale(), _light.texture_scale),
 		0.0, 1.0)
-
+		
 
 # Current light radius in pixels (0 when off)
 func get_light_radius() -> float:
 	if _light == null:
 		return 0.0
 	return _light.texture_scale * LIGHT_TEXTURE_SIZE * 0.5
+	
 
 func _get_light_texture() -> GradientTexture2D:
 	if _light_texture == null:
@@ -166,3 +189,16 @@ func _get_light_texture() -> GradientTexture2D:
 		_light_texture.width = LIGHT_TEXTURE_SIZE
 		_light_texture.height = LIGHT_TEXTURE_SIZE
 	return _light_texture
+	
+func _play_interaction_animation(animation_name: StringName, interactable: Interactable):
+	_is_input_allowed = false
+	animation_player.animation_finished.connect(_release_input)
+	animation_player.play(animation_name)
+	
+func _release_input():
+	animation_player.animation_finished.disconnect(_release_input)
+	_is_input_allowed = true;
+
+
+func _on_obsession_bar_obsession_filled() -> void:
+	player_death.emit(score_tracker.current_score)
