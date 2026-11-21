@@ -164,3 +164,9 @@ func draw_maze() -> void:
 	wall_tile_map.set_cells_terrain_connect(wall_cells, 0, 0)
 	ground_tile_map.set_cells_terrain_connect(ground_cells, 0, 1)
 	ground_tile_map.set_cells_terrain_connect(path_cells, 0, 2)
+
+func get_pixel_size() -> Vector2i:
+	return Vector2i(
+		self.map[0].size() * self.wall_tile_map.tile_set.tile_size.x,
+		self.map.size() * self.wall_tile_map.tile_set.tile_size.y,
+	)

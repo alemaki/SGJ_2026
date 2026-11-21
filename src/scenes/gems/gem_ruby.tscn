@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bmyrlhg5o8mb"]
+
+[ext_resource type="Script" uid="uid://bryfgxm73v0tc" path="res://src/scripts/gem.gd" id="1_1pegq"]
+[ext_resource type="Script" uid="uid://75bd82uxuxog" path="res://src/scripts/interactable.gd" id="2_2hvox"]
+[ext_resource type="Texture2D" uid="uid://csxyx5wea4ot8" path="res://icon.svg" id="3_8flbs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oo1dv"]
+radius = 16.0
+
+[node name="GemBody" type="AnimatedSprite2D" unique_id=1697653208]
+script = ExtResource("1_1pegq")
+hits_needed_to_collect = 4
+score_reward = 250
+
+[node name="Interactable" type="Area2D" parent="." unique_id=2064250558]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_2hvox")
+prompt_text = "mine"
+metadata/_custom_type_script = "uid://75bd82uxuxog"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1911000667]
+shape = SubResource("CircleShape2D_oo1dv")
+
+[node name="PlaceholderBody" type="Sprite2D" parent="." unique_id=811674647]
+self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_8flbs")
