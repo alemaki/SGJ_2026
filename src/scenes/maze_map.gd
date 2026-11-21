@@ -1,30 +1,27 @@
 @tool
 
-extends TileMapLayer
-class_name MazeMap
-@export_range(1, 100, 1) var size_columns: int = 200:
+extends Node
+class_name MazeGenerator
+
+@export var wall_tile_map: TileMapLayer = null
+@export var ground_tile_map: TileMapLayer = null
+
+@export_range(1, 100, 1) var size_columns: int = 50:
 	set(value):
 		size_columns = value
 		self._ready()
 
-@export_range(1, 100, 1)  var size_rows: int = 200
+@export_range(1, 100, 1)  var size_rows: int = 50
 
 @export_range(10, INF, 1) var min_stack_size: int = 10
-@export_range(0, 1) var path_give_up_chance: float = 0.20
-@export_range(0, 1) var branch_give_up_chance: float = 0.75
+@export_range(0, 1) var path_give_up_chance: float = 0.008
+@export_range(0, 1) var branch_give_up_chance: float = 0.97
 
-@export var starting_point = Vector2i(1, 1)
+@export var starting_point = Vector2i(2, 2)
+
+@export_range(1, INF, 1) var neighbour_distance: int = 2
 
 var map: Array[Array] = []
-
-const POSSIBLE_X_DIRECTIONS: Array[Vector2i] = [
-	Vector2i(1, 0),
-	Vector2i(-1, 0),
-]
-const POSSIBLE_Y_DIRECTIONS: Array[Vector2i] = [
-	Vector2i(0, 1),
-	Vector2i(0, -1),
-]
 
 enum MazePart {
 	EMPTY = 0,
@@ -40,29 +37,30 @@ func is_wall(pos: Vector2i) -> bool:
 
 func initialise_map() -> void:
 	self.map.clear()
-	self.map.resize(self.size_rows + 1)
+	self.map.resize(self.size_rows + neighbour_distance)
 	for row: Array[MazePart] in self.map:
-		row.resize(self.size_columns + 1)
+		row.resize(self.size_columns + neighbour_distance)
 		row.fill(MazePart.WALL)
 
-func is_neighbour(pos1: Vector2i, pos2: Vector2i, diagonal: bool = false) -> bool:
+func is_close_neighbour(
+		pos1: Vector2i,
+		pos2: Vector2i,
+		distance: int = 1,
+		) -> bool:
 	var vec: Vector2i = abs(pos1 - pos2)
-	if is_equal_approx(vec.length(), 1):
-		return true
-	if diagonal and vec.x == 1 and vec.y == 1:
-		return true
-	return false
+	return vec.x <= distance\
+			and vec.y <= distance\
+			and not (vec.x == 0 and vec.y == 0)
 
-func get_neighbours(pos: Vector2i, diagonal: bool = false) -> Array[Vector2i]:
+func get_neighbours(pos: Vector2i, distance: int = 1, diagonaly: bool = false) -> Array[Vector2i]:
 	var res: Array[Vector2i] = []
-	for x_dir: Vector2i in POSSIBLE_X_DIRECTIONS:
-		res.push_back(pos + x_dir)
-		if not diagonal:
-			continue
-		for y_dir: Vector2i in POSSIBLE_Y_DIRECTIONS:
-			res.push_back(pos + x_dir + y_dir)
-	for y_dir: Vector2i in POSSIBLE_Y_DIRECTIONS:
-		res.push_back(pos + y_dir)
+	for x in range(-distance, distance + 1):
+		for y in range(-distance, distance + 1):
+			if x == 0 and y == 0:
+				continue
+			if (not diagonaly) and x != 0 and y != 0:
+				continue
+			res.append(pos + Vector2i(x, y))
 	return res
 
 func is_valid_pos(pos: Vector2i) -> bool:
@@ -71,10 +69,10 @@ func is_valid_pos(pos: Vector2i) -> bool:
 			and pos.x < self.size_columns\
 			and pos.y < self.size_rows)
 
-func get_empty_neighbours_count(pos: Vector2i, diagonal: bool = false) -> int:
+func get_empty_neighbours_count(pos: Vector2i, distance: int = 1, diagonaly = false) -> int:
 	assert(is_valid_pos(pos))
 	var empty_neigbours: int = 0
-	var neighbours = get_neighbours(pos, diagonal)
+	var neighbours = get_neighbours(pos, distance, diagonaly)
 	for neighbour: Vector2i in neighbours:
 		if self.is_empty(neighbour):
 			empty_neigbours += 1
@@ -82,21 +80,26 @@ func get_empty_neighbours_count(pos: Vector2i, diagonal: bool = false) -> int:
 
 func is_path(pos: Vector2i) -> bool:
 	assert(is_valid_pos(pos))
-	if self.get_empty_neighbours_count(pos) >= 2:
+	if self.get_empty_neighbours_count(pos, 1) >= 2:
 		return true
 	return false
 
 ## Get neighbours in cone to the current tile
-func get_cone_neighbours(prev: Vector2i, next: Vector2i) -> Array[Vector2i]:
-	assert(is_valid_pos(prev))
-	assert(is_valid_pos(next))
-	
-	var all_neighbours := get_neighbours(next, true)
-	var cone_neighbours: Array[Vector2i] = []
-	for neigh: Vector2i in all_neighbours:
-		if not is_neighbour(neigh, prev) and not neigh == prev:
-			cone_neighbours.push_back(neigh)
-	return cone_neighbours
+func get_cone_neighbours(
+		prev: Vector2i,
+		next: Vector2i,
+		distance: int = 1
+		) -> Array[Vector2i]:
+	var cone: Array[Vector2i] = []
+	var direction := next - prev
+	for neighbour in self.get_neighbours(next, distance, true):
+		var offset := neighbour - next
+		if offset == Vector2i.ZERO:
+			continue
+		if Vector2(offset).dot(Vector2(direction)) < 0:
+			continue
+		cone.append(neighbour)
+	return cone
 
 ## Map will be generated here directly.
 func _ready() -> void:
@@ -126,11 +129,10 @@ func _ready() -> void:
 					continue
 		
 		var possible_neighbours: Array[Vector2i] = []
-		for direction in (POSSIBLE_X_DIRECTIONS + POSSIBLE_Y_DIRECTIONS):
-			var cell_to_check = current + direction
+		for cell_to_check in self.get_neighbours(current, 1, false):
 			if is_valid_pos(cell_to_check)\
 				and not visited.has(cell_to_check)\
-				and not self.get_cone_neighbours(current, cell_to_check).any(is_empty):
+				and not self.get_cone_neighbours(current, cell_to_check, self.neighbour_distance).any(is_empty):
 				possible_neighbours.push_back(cell_to_check)
 		
 		if possible_neighbours.is_empty():
@@ -144,12 +146,14 @@ func _ready() -> void:
 	self.draw_maze()
 
 func draw_maze() -> void:
-	self.clear()
+	assert(self.wall_tile_map != null)
+	assert(self.ground_tile_map != null)
+	self.wall_tile_map.clear()
+	self.ground_tile_map.clear()
 	for y in range(map.size()):
 		for x in range(map[y].size()):
-			var tile := Vector2i(1, 1) if self.map[y][x] == MazePart.WALL else Vector2i(4, 1) # those are the atlas coordinates
-			self.set_cell(
-					Vector2i(x, y),
-					0,
-					tile
-				)
+			var wall_tile := Vector2i(1, 1)
+			var empty_tile := Vector2i(1, 4)
+			if self.map[y][x] == MazePart.WALL:
+				self.wall_tile_map.set_cell(Vector2i(x, y), 0, wall_tile)
+			self.ground_tile_map.set_cell(Vector2i(x, y), 0, empty_tile)
