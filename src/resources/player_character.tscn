@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7dnf51gr38ps" path="res://src/scenes/light_progress.tscn" id="6_jc02h"]
 [ext_resource type="Script" uid="uid://u7ea28nmpjnb" path="res://src/scripts/highlighter.gd" id="7_6klo3"]
 [ext_resource type="PackedScene" uid="uid://c86l2vneltkcs" path="res://note_ui.tscn" id="7_kusxk"]
+[ext_resource type="PackedScene" uid="uid://cdrrapn77i8p8" path="res://assets/art/ui/Godess_Progress.tscn" id="8_1xdfo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vboe8"]
 radius = 9.0
@@ -92,6 +93,9 @@ offset_top = 60.0
 offset_bottom = 60.0
 
 [node name="NoteUI" parent="Camera/CanvasLayer" unique_id=1671791456 instance=ExtResource("7_kusxk")]
+
+[node name="GodessProgress" parent="Camera/CanvasLayer" unique_id=1386638537 instance=ExtResource("8_1xdfo")]
+start_hidden = true
 
 [node name="InteractableSensor" type="Area2D" parent="." unique_id=1111991030]
 collision_layer = 0
