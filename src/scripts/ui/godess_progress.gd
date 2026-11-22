@@ -6,6 +6,7 @@ class_name Vitraj
 		value = maxi(value, 0)
 		var gained := value > collected_gems
 		collected_gems = value
+
 		if is_node_ready():
 			_refresh(true)
 			if gained:
@@ -52,6 +53,8 @@ func _ready() -> void:
 	_setup_pieces()
 	_refresh(false)
 
+	GlobalEvents.gem_collected.connect(on_gem_collected)
+	
 	_hide_timer = Timer.new()
 	_hide_timer.one_shot = true
 	_hide_timer.timeout.connect(_fade_to.bind(0.0, fade_out_duration))
@@ -60,6 +63,10 @@ func _ready() -> void:
 	if auto_hide and start_hidden:
 		frames.modulate.a = 0.0
 		frames.hide()
+
+
+func on_gem_collected(score: int) -> void:
+	collected_gems = collected_gems + score / 20
 
 
 # First child unlocks at 1 gem, second at 2, ... last at child count.
@@ -168,6 +175,7 @@ func _kill_pop(piece: TextureProgressBar) -> void:
 func _on_gems_gained() -> void:
 	if not auto_hide:
 		return
+
 	_fade_to(1.0, fade_in_duration)
 	_hide_timer.start(hide_delay)
 
