@@ -1,4 +1,3 @@
-@tool
 extends MapNodeGenerator
 class_name MapGemGenerator
 # Interface
