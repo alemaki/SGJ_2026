@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cxsebvuijxy7g"]
 
 [ext_resource type="Script" uid="uid://dqpw2h5t8isbo" path="res://src/scripts/ui/score_tracker.gd" id="1_6m6mr"]
+[ext_resource type="FontFile" uid="uid://dpyjihv03bxd0" path="res://addons/dho_arcade_addon/fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="2_xhlbo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xhlbo"]
+font = ExtResource("2_xhlbo")
 font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_6m6mr"]
@@ -23,10 +25,10 @@ offset_right = 143.0
 offset_bottom = 42.0
 text = "0"
 label_settings = SubResource("LabelSettings_xhlbo")
+horizontal_alignment = 2
 
 [node name="Name" type="Label" parent="." unique_id=968122964]
 layout_mode = 0
 offset_right = 96.0
 offset_bottom = 42.0
-text = "Score: "
 label_settings = SubResource("LabelSettings_6m6mr")
