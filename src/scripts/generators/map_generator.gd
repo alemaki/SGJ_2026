@@ -151,10 +151,12 @@ func draw_maze() -> void:
 	var path_cells: Array[Vector2i] = []
 	for x in range(starting_point.x):
 		map[starting_point.y][x] = MazePart.EMPTY
+	for x in range(-self.neighbour_distance, starting_point.x):
+		ground_cells.push_back(Vector2i(starting_point.y, x))
 	for y in range(-self.neighbour_distance, size_rows + self.neighbour_distance):
 		for x in range(-self.neighbour_distance, size_columns + self.neighbour_distance):
 			var pos := Vector2i(x, y)
-			if map[y][x] == MazePart.WALL:
+			if map[y][x] == MazePart.WALL and not (x < 0 and y == starting_point.y):
 				wall_cells.append(pos)
 			else:
 				path_cells.append(pos)

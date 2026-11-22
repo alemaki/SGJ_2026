@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://06gxse03ahtv"]
+
+[ext_resource type="Script" uid="uid://xuxh5ymnbxl7" path="res://src/scripts/win_condition.gd" id="1_tyhxe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn3ss"]
+size = Vector2(120.25, 80)
+
+[sub_resource type="Gradient" id="Gradient_mxi56"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 0.9776916, 0.85430586, 0.2, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pxybt"]
+gradient = SubResource("Gradient_mxi56")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.3)
+
+[node name="WinCondition" type="Node2D" unique_id=744036386]
+script = ExtResource("1_tyhxe")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2142211950]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=56948410]
+position = Vector2(-25.125, 0)
+shape = SubResource("RectangleShape2D_tn3ss")
+
+[node name="Light" type="PointLight2D" parent="." unique_id=270269841]
+scale = Vector2(6.0234375, 4.171875)
+energy = 5.0
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_pxybt")

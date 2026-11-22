@@ -13,12 +13,12 @@
 radius = 9.0
 height = 34.0
 
-[sub_resource type="Gradient" id="Gradient_mxi56"]
+[sub_resource type="Gradient" id="Gradient_6klo3"]
 interpolation_mode = 2
 colors = PackedColorArray(1, 0.9776916, 0.85430586, 0.2, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5p0pn"]
-gradient = SubResource("Gradient_mxi56")
+gradient = SubResource("Gradient_6klo3")
 width = 128
 height = 128
 fill = 1
