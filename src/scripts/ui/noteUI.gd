@@ -35,5 +35,5 @@ func denoted() -> void:
 func _process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_0):
 		noted()
-	if (Input.is_action_just_pressed("ui_cancel") || Input.is_key_pressed(KEY_1)) && openNote:
+	if (Input.is_action_just_pressed("ui_accept_device_0") || Input.is_key_pressed(KEY_1)) && openNote:
 		denoted()
