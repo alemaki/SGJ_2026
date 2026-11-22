@@ -30,16 +30,19 @@ func generate_object(pos: Vector2i) -> bool:
 	var gem_dir := Vector2(wall_pos - pos)
 	gem.rotate(gem_og_direction.angle_to(gem_dir))
 	var gem_pos := Vector2(wall_pos.x * self._tile_size.x, wall_pos.y * self._tile_size.y)
-	#var gem_pos = Vector2( # do not forget reversed column and row
-		#wall_pos.y * self._tile_size.x,# + (abs(gem_dir.x) + 1) * self._tile_size.x * 1/2,
-		#wall_pos.x * self._tile_size.y,# + (abs(gem_dir.y) + 1) * self._centre_vector.y * 1/2,
-	#)
-	print("path pos: ", pos)
-	print("generating gem at: ", wall_pos)
-	print("is wall path: ", self.map_generator.is_wall(pos))
-	print("is wall wall: ", self.map_generator.is_wall(wall_pos))
-	print("gem_pos: ", gem_pos)
-	print("gem_dir: ", gem_dir)
+	var offset_tiles := Vector2.ZERO
+	# Add half offsets for x and y where necesarry + 10% error margin
+	if gem_dir.is_equal_approx(Vector2i.RIGHT):
+		offset_tiles = Vector2(0.1, 0.5)
+	if gem_dir.is_equal_approx(Vector2i.LEFT):
+		offset_tiles = Vector2(0.9, 0.5)
+	if gem_dir.is_equal_approx(Vector2i.UP):
+		offset_tiles = Vector2(0.5, 0.9)
+	if gem_dir.is_equal_approx(Vector2i.DOWN):
+		offset_tiles = Vector2(0.5, 0.1)
+	var offset: Vector2 = offset_tiles * Vector2(self._tile_size)
+	print(offset)
+	gem_pos += offset
 	self.add_child(gem)
 	gem.set_position(gem_pos)
 	return true

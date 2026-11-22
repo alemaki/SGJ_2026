@@ -36,7 +36,6 @@ func generate_objects():
 			if randf() > intensity:
 				generate = false
 			if generate and self.generate_object(pos):
-				return false
 				generated_on[pos] = true
 				#total_objects_generated += 1
 
