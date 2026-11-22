@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bryfgxm73v0tc" path="res://src/scripts/gem.gd" id="1_ef3am"]
 [ext_resource type="Script" uid="uid://75bd82uxuxog" path="res://src/scripts/player/interactable.gd" id="1_oo1dv"]
+[ext_resource type="Script" uid="uid://dvx52u01rvxat" path="res://src/scripts/highlightable.gd" id="2_g6e6f"]
 [ext_resource type="Texture2D" uid="uid://byvhgq5oxellf" path="res://assets/art/gems/ruby_3d_sprite_sheet.png" id="3_4sksc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oo1dv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6e6f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cua35"]
 atlas = ExtResource("3_4sksc")
@@ -910,6 +913,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_1pegq"]
+interpolation_mode = 2
+colors = PackedColorArray(0.34699953, 0.69110245, 0, 0.92941177, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g6e6f"]
+gradient = SubResource("Gradient_1pegq")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="GemRoot" type="Node2D" unique_id=1985147079]
 script = ExtResource("1_ef3am")
 score_reward = 40
@@ -924,7 +939,20 @@ metadata/_custom_type_script = "uid://75bd82uxuxog"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1911000667]
 shape = SubResource("CircleShape2D_oo1dv")
 
+[node name="Highlightable" type="Area2D" parent="." unique_id=1868784810]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_g6e6f")
+metadata/_custom_type_script = "uid://dvx52u01rvxat"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Highlightable" unique_id=1709203646]
+shape = SubResource("CircleShape2D_g6e6f")
+
 [node name="GemBody" type="AnimatedSprite2D" parent="." unique_id=108966468]
 self_modulate = Color(0, 1.337368, 0.47120643, 1)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_g6e6f")
+
+[node name="Glow" type="PointLight2D" parent="." unique_id=2116571573]
+energy = 0.0
+texture = SubResource("GradientTexture2D_g6e6f")

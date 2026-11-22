@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bryfgxm73v0tc" path="res://src/scripts/gem.gd" id="1_1pegq"]
 [ext_resource type="Script" uid="uid://75bd82uxuxog" path="res://src/scripts/player/interactable.gd" id="2_2hvox"]
 [ext_resource type="Texture2D" uid="uid://byvhgq5oxellf" path="res://assets/art/gems/ruby_3d_sprite_sheet.png" id="3_1pegq"]
+[ext_resource type="Script" uid="uid://dvx52u01rvxat" path="res://src/scripts/highlightable.gd" id="4_2hvox"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oo1dv"]
 radius = 10.049875
@@ -911,6 +912,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2hvox"]
+radius = 8.062258
+
+[sub_resource type="Gradient" id="Gradient_1pegq"]
+interpolation_mode = 2
+colors = PackedColorArray(3.1894634, 0.18905017, 0, 0.92800003, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8flbs"]
+gradient = SubResource("Gradient_1pegq")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="GemRoot" type="Node2D" unique_id=335012882]
 script = ExtResource("1_1pegq")
 hits_needed_to_collect = 4
@@ -929,3 +945,16 @@ shape = SubResource("CircleShape2D_oo1dv")
 [node name="GemBody" type="AnimatedSprite2D" parent="." unique_id=1609172006]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_2hvox")
+
+[node name="Highlightable" type="Area2D" parent="." unique_id=333390030]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_2hvox")
+metadata/_custom_type_script = "uid://dvx52u01rvxat"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Highlightable" unique_id=485529842]
+shape = SubResource("CircleShape2D_2hvox")
+
+[node name="Glow" type="PointLight2D" parent="." unique_id=1862091188]
+energy = 0.0
+texture = SubResource("GradientTexture2D_8flbs")

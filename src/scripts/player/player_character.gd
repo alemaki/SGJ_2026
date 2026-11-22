@@ -35,6 +35,8 @@ var _light_on := false
 var _is_input_allowed := true;
 
 @onready var interactable_sensor: InteractableSensor = $InteractableSensor
+@onready var highlighter: Highlighter = $Highlighter
+
 
 signal player_death(final_score)
 

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dl7pwixi6nmee" path="res://src/scripts/player/player_camera.gd" id="3_oxmt1"]
 [ext_resource type="PackedScene" uid="uid://cxsebvuijxy7g" path="res://src/scenes/score.tscn" id="4_1hvy0"]
 [ext_resource type="Script" uid="uid://bi4edrwd02i61" path="res://src/scripts/player/interactable_sensor.gd" id="5_pw81d"]
+[ext_resource type="Script" uid="uid://u7ea28nmpjnb" path="res://src/scripts/highlighter.gd" id="7_6klo3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vboe8"]
 radius = 9.0
@@ -25,6 +26,8 @@ fill_to = Vector2(1, 0.3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2x1b3"]
 radius = 18.027756
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6klo3"]
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962 node_paths=PackedStringArray("animation_player", "obsession_bar", "score_tracker")]
 collision_mask = 6
@@ -88,5 +91,15 @@ metadata/_custom_type_script = "uid://bi4edrwd02i61"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableSensor" unique_id=1830075891]
 shape = SubResource("CircleShape2D_2x1b3")
+
+[node name="Highlighter" type="Area2D" parent="." unique_id=1110196036]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("7_6klo3")
+highlight_radius = 700.0
+metadata/_custom_type_script = "uid://u7ea28nmpjnb"
+
+[node name="HighlightCollision" type="CollisionShape2D" parent="Highlighter" unique_id=592460391]
+shape = SubResource("CircleShape2D_6klo3")
 
 [connection signal="obsession_filled" from="Camera/CanvasLayer/ObsessionBar" to="." method="_on_obsession_bar_obsession_filled"]

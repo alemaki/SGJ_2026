@@ -123,7 +123,7 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(86, 39)
 
 [node name="GemRoot2" parent="." unique_id=335012882 instance=ExtResource("4_3ysxq")]
-position = Vector2(137, 29)
+position = Vector2(137, 31)
 
 [node name="GemRoot3" parent="." unique_id=46768456 instance=ExtResource("5_cfhw2")]
-position = Vector2(50, 10)
+position = Vector2(59, 8)
