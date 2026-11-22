@@ -930,7 +930,7 @@ fill_to = Vector2(1, 0.5)
 [node name="GemRoot" type="Node2D" unique_id=335012882 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_1pegq")
 hits_needed_to_collect = 4
-score_reward = 250
+score_reward = 100
 animation_player = NodePath("GemBody")
 
 [node name="Interactable" type="Area2D" parent="." unique_id=2064250558]
