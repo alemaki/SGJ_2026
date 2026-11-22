@@ -23,14 +23,15 @@ func _ready() -> void:
 	highlightable.on_interaction.connect(_toggle_glow)
 
 func _can_interact(_interactor: Node) -> bool:
-	return hits_needed_to_collect < _hits_taken
+	return hits_needed_to_collect > _hits_taken
 
 func _take_hit(_interactor: Node) -> void:
 	_hits_taken += 1
 	if (_hits_taken == hits_needed_to_collect):
 		# 1. Play on pick up VFX
 		# 2. Add score
-		get_parent().queue_free()
+		self.queue_free()
+		GlobalEvents.emit_signal("gem_collected", score_reward)
 
 func _toggle_glow(is_glow_on: bool) ->void:
 	if _glow_tween:

@@ -4,6 +4,9 @@ class_name ScoreTracker
 @export var score_label: Label = null
 var current_score: int = 0
 
+func _ready() -> void:
+	GlobalEvents.gem_collected.connect(increase_score)
+
 func _update_label_score() -> void:
 	score_label.text = str(current_score)
 

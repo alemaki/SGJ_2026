@@ -44,7 +44,7 @@ light_progress = NodePath("Camera/CanvasLayer/LightProgress")
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=2139457209]
 sprite_frames = ExtResource("2_5p0pn")
-animation = &"idle"
+animation = &"left_dig"
 
 [node name="CharacterCollision" type="CollisionShape2D" parent="." unique_id=554669238]
 position = Vector2(-2, 0)
