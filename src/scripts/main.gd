@@ -15,4 +15,4 @@ func _ready() -> void:
 
 func _on_player_character_player_death(final_score: int) -> void:
 	# TODO: Find out whether the game won.
-	DHOSceneManager.switch_to_save_score_scene(self.get_tree(), final_score, false)
+	DHOSceneManager.switch_to_save_score_scene(self.get_tree(), 0, false)
