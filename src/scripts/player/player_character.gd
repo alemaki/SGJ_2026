@@ -54,7 +54,9 @@ func _ready() -> void:
 func _handle_animations(input_dir: Vector2) -> void:
 	if velocity == Vector2.ZERO:
 		animation_player.play("idle")
+		AudioManager.getInstance().pauseAudio("walking")
 	else:
+		AudioManager.getInstance().playAndLoadAudio("walking","res://assets/audio/sfx/walking-gravel.mp3","Echo",0.0,true)
 		if input_dir.x < 0:
 			animation_player.play("left")
 			last_dir = "left"

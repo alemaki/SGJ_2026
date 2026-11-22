@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c41yknwdck28i" path="res://assets/art/character-new/Man_right.png" id="4_17dcy"]
 [ext_resource type="Texture2D" uid="uid://c83jdqyjmy8wt" path="res://assets/art/character-new/Man_up.png" id="5_2d26l"]
 [ext_resource type="Texture2D" uid="uid://ru0p7ylj0m4d" path="res://assets/art/character-new/Man_left_dig.png" id="5_8yhgi"]
-[ext_resource type="Texture2D" uid="uid://c1npu56lw8188" path="res://assets/art/character-new/Man_right_dig.png" id="5_ce5y8"]
+[ext_resource type="Texture2D" uid="uid://xekhlsvxapjx" path="res://assets/art/character-new/Man_right_dig.png" id="5_ce5y8"]
 [ext_resource type="Texture2D" uid="uid://qgl3akjej0gk" path="res://assets/art/character-new/Man_up_dig.png" id="9_go8s8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8yhgi"]
