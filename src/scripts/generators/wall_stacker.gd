@@ -20,6 +20,8 @@ func _ready() -> void:
 		copy.tile_set = source.tile_set
 		copy.tile_map_data = source.tile_map_data
 		copy.collision_enabled = false
+		if i == slices - 1:
+			copy.collision_enabled = true
 		if i != slices - 1:
 			copy.occlusion_enabled = false
 		copy.modulate = bottom_color.lerp(top_color, t * t)

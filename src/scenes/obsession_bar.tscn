@@ -9,7 +9,8 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8flyr")
 bar = NodePath("Bar")
-scaling_type = 2
+scaling_type = 1
+exponent_constant = 1.0
 metadata/_custom_type_script = "uid://cefrtvnxxq8x7"
 
 [node name="Bar" type="TextureProgressBar" parent="." unique_id=946833784]

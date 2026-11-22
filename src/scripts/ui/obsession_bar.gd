@@ -69,7 +69,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if not pause_timer:
-		bar.value += scale(delta)
+		bar.value += scale(delta) / 5
 		if is_equal_approx(bar.value, bar.max_value):
 			obsession_filled.emit()
 			pause_timer = true
