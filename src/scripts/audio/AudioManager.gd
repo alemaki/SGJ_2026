@@ -22,7 +22,7 @@ func playAudio(effect: String) -> void:
 func pauseAudio(effect: String) -> void:
 	if !soundEffects.has(effect):
 		return
-	soundEffects[effect].pause()
+	soundEffects[effect].stop()
 
 func playAndLoadAudio(
 	effect: String,

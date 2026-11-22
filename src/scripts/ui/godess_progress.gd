@@ -66,6 +66,7 @@ func _ready() -> void:
 
 
 func on_gem_collected(score: int) -> void:
+	AudioManager.getInstance().playAndLoadAudio("mural", "res://assets/audio/sfx/glass-restore.mp3", "Master", 0.0, false)
 	collected_gems = collected_gems + score / 20
 
 
