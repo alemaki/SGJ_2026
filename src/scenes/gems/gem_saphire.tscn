@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c7a75p0fs6ptr"]
 
 [ext_resource type="Script" uid="uid://bryfgxm73v0tc" path="res://src/scripts/gem.gd" id="1_3tv76"]
-[ext_resource type="Script" uid="uid://75bd82uxuxog" path="res://src/scripts/interactable.gd" id="2_5p2xi"]
+[ext_resource type="Script" uid="uid://75bd82uxuxog" path="res://src/scripts/player/interactable.gd" id="2_5p2xi"]
 [ext_resource type="Texture2D" uid="uid://db8guinmcis1h" path="res://assets/art/gems/saphire_3d_sprite_sheet.png" id="4_8bxi3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oo1dv"]

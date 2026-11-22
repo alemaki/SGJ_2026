@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kgddrxjowpu1"]
 
 [ext_resource type="Script" uid="uid://bryfgxm73v0tc" path="res://src/scripts/gem.gd" id="1_ef3am"]
-[ext_resource type="Script" uid="uid://75bd82uxuxog" path="res://src/scripts/interactable.gd" id="1_oo1dv"]
+[ext_resource type="Script" uid="uid://75bd82uxuxog" path="res://src/scripts/player/interactable.gd" id="1_oo1dv"]
 [ext_resource type="Texture2D" uid="uid://byvhgq5oxellf" path="res://assets/art/gems/ruby_3d_sprite_sheet.png" id="3_4sksc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oo1dv"]

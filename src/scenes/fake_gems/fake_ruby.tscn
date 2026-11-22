@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqjehirgoesac" path="res://src/scripts/fake_gem.gd" id="1_cua35"]
 [ext_resource type="Texture2D" uid="uid://byvhgq5oxellf" path="res://assets/art/gems/ruby_3d_sprite_sheet.png" id="1_oxwsh"]
-[ext_resource type="Script" uid="uid://75bd82uxuxog" path="res://src/scripts/interactable.gd" id="1_ukg7e"]
+[ext_resource type="Script" uid="uid://75bd82uxuxog" path="res://src/scripts/player/interactable.gd" id="1_ukg7e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vboe8"]
 radius = 14.0
