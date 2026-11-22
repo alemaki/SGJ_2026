@@ -37,12 +37,12 @@ func _on_highlightable_exited(area: Area2D) -> void:
 		area.switch_highlight()
 
 func _grow_area() -> void:
-	_area_scale_tween = self.create_tween().set_parallel(true)
+	_area_scale_tween = create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	_area_scale_tween.tween_property(collision_shape.shape, "radius", highlight_radius, highlight_grow_duration)\
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 
 func _shrink_area() -> void:
-	_area_scale_tween = self.create_tween().set_parallel(true)
+	_area_scale_tween = create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	_area_scale_tween.tween_property(collision_shape.shape, "radius", 5.0, highlight_shrink_duration)\
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)

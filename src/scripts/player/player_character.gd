@@ -86,6 +86,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_accept_device_0") and _illuminate_cooldown_left == 0.0:
 		_toggle_light()
+		highlighter.toggle_highlighting()
 		_illuminate_cooldown_left = illuminate_cooldown
 
 	# Handle interaction
