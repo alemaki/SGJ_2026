@@ -41,7 +41,6 @@ func generate_object(pos: Vector2i) -> bool:
 	if gem_dir.is_equal_approx(Vector2i.DOWN):
 		offset_tiles = Vector2(0.5, 0.1)
 	var offset: Vector2 = offset_tiles * Vector2(self._tile_size)
-	print(offset)
 	gem_pos += offset
 	self.add_child(gem)
 	gem.set_position(gem_pos)
