@@ -109,4 +109,3 @@ metadata/_custom_type_script = "uid://u7ea28nmpjnb"
 shape = SubResource("CircleShape2D_6klo3")
 
 [connection signal="obsession_filled" from="Camera/CanvasLayer/ObsessionBar" to="." method="_on_obsession_bar_obsession_filled"]
-[connection signal="obsession_halfway" from="Camera/CanvasLayer/ObsessionBar" to="." method="_on_obsession_bar_obsession_halfway"]

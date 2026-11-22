@@ -42,7 +42,6 @@ var _is_input_allowed := true;
 
 
 signal player_death(final_score)
-signal obsession_halfway
 
 func _ready() -> void:
 	obsession_bar.resume_progress()
@@ -218,7 +217,3 @@ func _release_input():
 
 func _on_obsession_bar_obsession_filled() -> void:
 	player_death.emit(score_tracker.current_score)
-
-
-func _on_obsession_bar_obsession_halfway() -> void:
-	obsession_halfway.emit()

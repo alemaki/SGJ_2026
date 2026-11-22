@@ -28,6 +28,7 @@ buses/default_bus_layout="uid://cwgnvv5rxg1jc"
 
 DhoJoypad="*uid://cer06u33jq5d7"
 ExitTrigger="*uid://d4b25sr8lvu76"
+GlobalEvents="*uid://6usfuyms2qmx"
 
 [display]
 
@@ -38,7 +39,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dho_arcade_addon/plugin.cfg")
+enabled=PackedStringArray("res://addons/dho_arcade_addon/plugin.cfg", "res://addons/godot_nvim/plugin.cfg")
 
 [input]
 

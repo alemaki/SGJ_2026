@@ -20,7 +20,6 @@ const MAX_PROGRESS: float = 100.0
 @export var min_obsession_progress: float = 1.0
 
 signal obsession_filled
-signal obsession_halfway
 
 func _logaritmic_scaling(score: float) -> float:
 	return log(score) / log(logarithmic_base)
@@ -77,4 +76,4 @@ func _process(delta: float) -> void:
 			obsession_filled.emit()
 			pause_timer = true
 		if is_equal_approx(bar.value, bar.max_value / 2):
-			obsession_halfway.emit()
+			GlobalEvents.emit_signal("obsession_halfway")
