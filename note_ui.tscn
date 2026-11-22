@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c86l2vneltkcs"]
+
+[ext_resource type="Script" uid="uid://cwgnnne8i1wel" path="res://src/scripts/ui/noteUI.gd" id="1_8b3qq"]
+[ext_resource type="Theme" uid="uid://dubjvex4rp6ix" path="res://addons/dho_arcade_addon/themes/default_theme.tres" id="1_ji6ou"]
+[ext_resource type="Texture2D" uid="uid://dx0hykcw13ym6" path="res://assets/art/ui/panel_parchment.png" id="2_ji6ou"]
+
+[node name="NoteUI" type="Control" unique_id=1671791456 node_paths=PackedStringArray("noteSprite", "textDisplay")]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ji6ou")
+script = ExtResource("1_8b3qq")
+noteSprite = NodePath("Sprite2D")
+textDisplay = NodePath("RichTextLabel")
+textNotes = Dictionary[int, String]({
+0: "I still remember this tragic day when a thunderstorm took away my home… It was raining still and the look on my peers… We all were scared, even the children. That day everyone lost something. As the head of the village… I had to take them somewhere safe… I didn’t want to put them at risk in these conditions…",
+1: "Even though I was little, I clearly  remember his exact expression. At that time he was the head of the village and as I grow older and older I think I understand his pain for his decision. We had only a few cows left for around 40 - 50 people and not a lot of flour. That year we had a weak produce, the sun did not spare us.",
+2: "I still get goosebumps when I think about that day, the thunderstorm destroyed everything… I was a scared young girl, I was going to marry my first love… I still miss him sometimes… And the sad thing is that we had to bury him in a hurry… Winter was coming and we had to move fast or else…",
+3: "I am glad that I have a place to call home, thanks to this cave we managed to survive thanks to the gems and the drinkable lake water inside it. Also now we are closer to the other villages as well. Even though we lost a lot, now thanks to the Goddess Iacinthina we now have an easier life. I am glad that we live with my peers near her.",
+4: "Oohh… I remember when Goddess Iacinthina appeared in my dream and chose me as her Lux, to spread her word to the people and to warn them about the Exchange. We have to bring her goods from the outside world to her and sometimes we receive bigger and rarer gems. ",
+5: "Haha, now I know how to write :D My brother won’t be happy with what I am about to write. ehh, he won’t find out, I will make sure to hide it well. So one day my brother got a little bit greedy and he took more gemstones that he needed. Ms. Goddess saw that and sent a small lighting string to his buttocks ;D Still funny I can’t stop laughing. I hope this note leaves a mark in the future.",
+6: "Thanks to these jewels, of the most mesmerizing kind, I managed with my limited tools to make a beautiful “be my forever” ring. She loved it and wore it for almost 30 years. We still visit Goddess Iacinthina from time to time to give her some flowers, bread, silk and jewelry. We share our lives with her, I think she is happy for us."
+})
+metadata/_custom_type_script = "uid://cwgnnne8i1wel"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2063552635]
+position = Vector2(66, 4)
+scale = Vector2(3.0911458, 2.6588542)
+texture = ExtResource("2_ji6ou")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=437678225]
+layout_mode = 0
+offset_left = -384.0
+offset_top = -388.0
+offset_right = 506.0
+offset_bottom = 387.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 34
+text = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac orci massa. Fusce aliquam arcu tincidunt ligula cursus molestie. Curabitur aliquet sed urna nec ultrices. Integer faucibus mauris augue, non vulputate leo maximus sit amet. Curabitur quam tortor, vehicula et dapibus in, placerat sit amet nunc. Phasellus facilisis nunc sit amet eros convallis, vel aliquet urna porta. Mauris lobortis feugiat enim sed consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent eget nisl urna. Nullam quis tempor purus. Mauris faucibus risus quis lorem iaculis mollis. Morbi non lorem at felis luctus tincidunt quis non eros. Cras eget ligula dui. Vivamus sit amet volutpat massa.
+
+Suspendisse nec purus turpis. Cras dui lectus, hendrerit non elementum a, vehicula vel velit. Pellentesque quis orci nulla. Vestibulum venenatis, velit in convallis tincidunt, turpis dolor posuere ligula, ut viverra ipsum eros id erat. Donec id placerat mi. Morbi id erat bibendum, blandit nisl non, egestas mi. Nam molestie massa ut eros sagittis, ut elementum orci imperdiet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec ullamcorper tellus ligula.
+
+Maecenas urna tortor, mattis a rhoncus at, accumsan sagittis metus. Curabitur cursus cursus interdum. Nullam nibh enim, consequat at facilisis ac, vestibulum at neque. Fusce eleifend iaculis odio maximus sagittis. Suspendisse porttitor dapibus nunc, non interdum elit eleifend vitae. Nulla facilisi. Pellentesque tincidunt, lectus eu scelerisque faucibus, ipsum dui ornare augue, vitae facilisis neque risus non diam. Nullam egestas tempor vestibulum. Sed nec feugiat ligula. Pellentesque euismod erat ut quam rutrum cursus. Aliquam cursus, velit tempor tincidunt placerat, massa metus commodo ante, at mattis metus turpis id elit. Aliquam finibus lacus ac mi commodo tristique. Donec tellus magna, accumsan rutrum odio ac, consectetur interdum ligula.
+
+Aliquam mattis nisl a odio tristique, a euismod dui tristique. Sed scelerisque egestas mauris, non tincidunt enim sodales id. Donec diam quam, mollis a augue vel, pulvinar facilisis enim. Proin sodales velit ac felis tincidunt accumsan. Sed tempus nulla et risus semper viverra. Duis nec eleifend sapien. Sed faucibus non nunc ac porta.
+
+Phasellus nec cursus felis, in fermentum est. Donec accumsan felis at erat faucibus scelerisque. Morbi finibus lorem vitae ex venenatis, in tempus dui lobortis. Integer non nunc felis. Fusce dictum sit amet mi quis porta. Cras nec finibus ex. Praesent ut nunc arcu. Duis suscipit vestibulum massa, id consectetur est viverra sit amet. Duis tincidunt consectetur sem vel tempus. Mauris sit amet enim eros. Phasellus gravida interdum leo. "

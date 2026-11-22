@@ -927,10 +927,11 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[node name="GemRoot" type="Node2D" unique_id=46768456]
+[node name="GemRoot" type="Node2D" unique_id=46768456 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_3tv76")
 hits_needed_to_collect = 1
 score_reward = 50
+animation_player = NodePath("GemBody")
 
 [node name="Interactable" type="Area2D" parent="." unique_id=2064250558]
 collision_layer = 2
