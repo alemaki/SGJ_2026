@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bg0f3m0i2x0xf" path="res://assets/art/character-new/Man_down.png" id="1_8umpm"]
 [ext_resource type="Texture2D" uid="uid://bs72xurmjr5v3" path="res://assets/art/character-new/Man_idle.png" id="2_ce5y8"]
 [ext_resource type="Texture2D" uid="uid://d3npt52lneith" path="res://assets/art/character-new/Man_left.png" id="3_ngeoa"]
-[ext_resource type="Texture2D" uid="uid://bcownal1ykjd6" path="res://assets/art/character-new/Man_right.png" id="4_17dcy"]
+[ext_resource type="Texture2D" uid="uid://c41yknwdck28i" path="res://assets/art/character-new/Man_right.png" id="4_17dcy"]
 [ext_resource type="Texture2D" uid="uid://c83jdqyjmy8wt" path="res://assets/art/character-new/Man_up.png" id="5_2d26l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8yhgi"]
