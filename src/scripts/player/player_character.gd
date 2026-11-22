@@ -7,11 +7,13 @@ extends CharacterBody2D
 
 # Illumination settings
 @export var illuminate_cooldown: float = 1.5
+@export var illuminate_timer_max: float = 120.0 # expected in seconds
 
 const RING_TEXTURE_SIZE := 256
 const RING_MIN_SCALE := 0.01
 
 var _illuminate_cooldown_left: float = 0.0
+var _illuminate_timer: float = illuminate_timer_max
 
 @export var light_radius: float = 750.0
 @export var light_energy: float = 1
@@ -24,6 +26,7 @@ var _illuminate_cooldown_left: float = 0.0
 @export var animation_player: AnimatedSprite2D = null
 @export var obsession_bar: ObsessionBar = null
 @export var score_tracker: ScoreTracker = null
+@export var light_progress: LightProgress = null
 
 const LIGHT_TEXTURE_SIZE := 256
 const LIGHT_MIN_SCALE := 0.01
@@ -39,10 +42,12 @@ var _is_input_allowed := true;
 
 
 signal player_death(final_score)
+signal obsession_halfway
 
 func _ready() -> void:
 	obsession_bar.resume_progress()
 	interactable_sensor.on_interaction_performed.connect(_play_interaction_animation)
+	light_progress.set_progress(_illuminate_timer, illuminate_timer_max)
 
 func _handle_animations(input_dir: Vector2) -> void:
 	if velocity == Vector2.ZERO:
@@ -56,13 +61,13 @@ func _handle_animations(input_dir: Vector2) -> void:
 			animation_player.play("up")
 		elif input_dir.y > 0:
 			animation_player.play("down")
-			
 
-	
+
+
 func _physics_process(delta: float) -> void:
 	if not _is_input_allowed:
 		return;
-	
+
 	# Handling movement
 	var input_dir := Vector2(
 		Input.get_axis("ui_left_device_0", "ui_right_device_0"),
@@ -84,7 +89,13 @@ func _physics_process(delta: float) -> void:
 	# Hangling Illuminate cooldown
 	_illuminate_cooldown_left = maxf(_illuminate_cooldown_left - delta, 0.0)
 
-	if Input.is_action_just_pressed("ui_accept_device_0") and _illuminate_cooldown_left == 0.0:
+	if _light_on && _illuminate_timer > 0:
+		_illuminate_timer -= delta
+		light_progress.set_progress(_illuminate_timer, illuminate_timer_max)
+	if _illuminate_timer <= 0 and _light_on:
+		_toggle_light()
+
+	if Input.is_action_just_pressed("ui_accept_device_0") and _illuminate_cooldown_left == 0.0 and _illuminate_timer > 0:
 		_toggle_light()
 		highlighter.toggle_highlighting()
 		_illuminate_cooldown_left = illuminate_cooldown
@@ -157,14 +168,14 @@ func _light_progress() -> float:
 	return clampf(
 		inverse_lerp(LIGHT_MIN_SCALE, _light_target_scale(), _light.texture_scale),
 		0.0, 1.0)
-		
+
 
 # Current light radius in pixels (0 when off)
 func get_light_radius() -> float:
 	if _light == null:
 		return 0.0
 	return _light.texture_scale * LIGHT_TEXTURE_SIZE * 0.5
-	
+
 
 func _get_light_texture() -> GradientTexture2D:
 	if _light_texture == null:
@@ -194,12 +205,12 @@ func _get_light_texture() -> GradientTexture2D:
 		_light_texture.width = LIGHT_TEXTURE_SIZE
 		_light_texture.height = LIGHT_TEXTURE_SIZE
 	return _light_texture
-	
+
 func _play_interaction_animation(animation_name: StringName, _interactable: Interactable):
 	_is_input_allowed = false
 	animation_player.animation_finished.connect(_release_input)
 	animation_player.play(animation_name)
-	
+
 func _release_input():
 	animation_player.animation_finished.disconnect(_release_input)
 	_is_input_allowed = true;
@@ -207,3 +218,7 @@ func _release_input():
 
 func _on_obsession_bar_obsession_filled() -> void:
 	player_death.emit(score_tracker.current_score)
+
+
+func _on_obsession_bar_obsession_halfway() -> void:
+	obsession_halfway.emit()
