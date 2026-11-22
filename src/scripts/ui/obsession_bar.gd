@@ -65,7 +65,7 @@ func scale(passed_time: float) -> float:
 	return final_scaling
 
 func _ready() -> void:
-	bar.value = 0
+	bar.value = 0.0
 
 func _process(delta: float) -> void:
 	if not pause_timer:
