@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://bi4edrwd02i61" path="res://src/scripts/interactable_sensor.gd" id="5_pw81d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vboe8"]
-radius = 8.0
-height = 40.0
+radius = 13.0
+height = 34.0
 
 [sub_resource type="Gradient" id="Gradient_mxi56"]
 interpolation_mode = 2
@@ -31,6 +31,7 @@ radius = 18.027756
 collision_mask = 6
 script = ExtResource("1_5p0pn")
 speed = 80.0
+acceleration = 400.0
 animation_player = NodePath("Body")
 obsession_bar = NodePath("Camera/CanvasLayer/ObsessionBar")
 score_tracker = NodePath("Camera/CanvasLayer/MarginContainer/ScoreTracker")
