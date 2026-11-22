@@ -190,7 +190,7 @@ func _get_light_texture() -> GradientTexture2D:
 		_light_texture.height = LIGHT_TEXTURE_SIZE
 	return _light_texture
 	
-func _play_interaction_animation(animation_name: StringName, interactable: Interactable):
+func _play_interaction_animation(animation_name: StringName, _interactable: Interactable):
 	_is_input_allowed = false
 	animation_player.animation_finished.connect(_release_input)
 	animation_player.play(animation_name)

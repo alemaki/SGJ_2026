@@ -8,13 +8,12 @@
 [ext_resource type="Script" uid="uid://bi4edrwd02i61" path="res://src/scripts/interactable_sensor.gd" id="5_pw81d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vboe8"]
-radius = 13.0
+radius = 9.0
 height = 34.0
 
 [sub_resource type="Gradient" id="Gradient_mxi56"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.35729614, 0.996114)
-colors = PackedColorArray(1, 0.9776916, 0.85430586, 0.2, 1, 0.97633153, 0.8548469, 0.17, 0, 0, 0, 0)
+colors = PackedColorArray(1, 0.9776916, 0.85430586, 0.2, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5p0pn"]
 gradient = SubResource("Gradient_mxi56")
@@ -30,7 +29,7 @@ radius = 18.027756
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962 node_paths=PackedStringArray("animation_player", "obsession_bar", "score_tracker")]
 collision_mask = 6
 script = ExtResource("1_5p0pn")
-speed = 80.0
+speed = 200.0
 acceleration = 400.0
 animation_player = NodePath("Body")
 obsession_bar = NodePath("Camera/CanvasLayer/ObsessionBar")
@@ -41,6 +40,7 @@ sprite_frames = ExtResource("2_5p0pn")
 animation = &"idle"
 
 [node name="CharacterCollision" type="CollisionShape2D" parent="." unique_id=554669238]
+position = Vector2(-2, 0)
 shape = SubResource("CapsuleShape2D_vboe8")
 
 [node name="Light" type="PointLight2D" parent="." unique_id=2122459108]

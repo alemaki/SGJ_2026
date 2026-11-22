@@ -925,6 +925,6 @@ metadata/_custom_type_script = "uid://75bd82uxuxog"
 shape = SubResource("CircleShape2D_oo1dv")
 
 [node name="GemBody" type="AnimatedSprite2D" parent="." unique_id=108966468]
-self_modulate = Color(0, 1, 0, 1)
-scale = Vector2(0.1, 0.1)
+self_modulate = Color(0, 1.337368, 0.47120643, 1)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_g6e6f")

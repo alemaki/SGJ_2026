@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://byvhgq5oxellf" path="res://assets/art/gems/ruby_3d_sprite_sheet.png" id="3_1pegq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oo1dv"]
-radius = 8.062258
+radius = 10.049875
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cua35"]
 atlas = ExtResource("3_1pegq")
@@ -927,5 +927,5 @@ metadata/_custom_type_script = "uid://75bd82uxuxog"
 shape = SubResource("CircleShape2D_oo1dv")
 
 [node name="GemBody" type="AnimatedSprite2D" parent="." unique_id=1609172006]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_2hvox")

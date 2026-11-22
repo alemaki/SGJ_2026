@@ -14,10 +14,10 @@ func _ready() -> void:
 	interactable.can_interact_check = _can_interact
 	interactable.on_interaction.connect(_take_hit)
 
-func _can_interact(interactor: Node) -> bool:
+func _can_interact(_interactor: Node) -> bool:
 	return hits_needed_to_collect < _hits_taken
 	
-func _take_hit(interactor: Node) -> void:
+func _take_hit(_interactor: Node) -> void:
 	_hits_taken += 1
 	if (_hits_taken == hits_needed_to_collect):
 		# 1. Play on pick up VFX
