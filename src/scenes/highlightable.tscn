@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dux2uoyws00wc"]
+
+[ext_resource type="Script" uid="uid://dvx52u01rvxat" path="res://src/scripts/highlightable.gd" id="1_qdtqo"]
+
+[node name="Node2D" type="Area2D" unique_id=1861642152]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_qdtqo")

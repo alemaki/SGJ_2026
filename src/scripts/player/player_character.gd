@@ -35,6 +35,8 @@ var _light_on := false
 var _is_input_allowed := true;
 
 @onready var interactable_sensor: InteractableSensor = $InteractableSensor
+@onready var highlighter: Highlighter = $Highlighter
+
 
 signal player_death(final_score)
 
@@ -70,6 +72,8 @@ func _physics_process(delta: float) -> void:
 	input_dir = input_dir.limit_length(1.0)
 
 	if input_dir != Vector2.ZERO:
+		if velocity.dot(input_dir) <= 0:
+			velocity = velocity.move_toward(input_dir * speed, friction * delta)
 		velocity = velocity.move_toward(input_dir * speed, acceleration * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
@@ -82,6 +86,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_accept_device_0") and _illuminate_cooldown_left == 0.0:
 		_toggle_light()
+		highlighter.toggle_highlighting()
 		_illuminate_cooldown_left = illuminate_cooldown
 
 	# Handle interaction
@@ -190,7 +195,7 @@ func _get_light_texture() -> GradientTexture2D:
 		_light_texture.height = LIGHT_TEXTURE_SIZE
 	return _light_texture
 	
-func _play_interaction_animation(animation_name: StringName, interactable: Interactable):
+func _play_interaction_animation(animation_name: StringName, _interactable: Interactable):
 	_is_input_allowed = false
 	animation_player.animation_finished.connect(_release_input)
 	animation_player.play(animation_name)
