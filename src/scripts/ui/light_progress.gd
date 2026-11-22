@@ -1,7 +1,7 @@
 extends Control
 class_name LightProgress
 
-@export var bar: ProgressBar = null
+@export var bar: TextureProgressBar = null
 
 func set_progress(time_left: float, max_time: float) -> void:
 	if time_left > 0:

@@ -14,8 +14,8 @@ metadata/_custom_type_script = "uid://cefrtvnxxq8x7"
 
 [node name="Bar" type="TextureProgressBar" parent="." unique_id=946833784]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 400.0
+offset_bottom = 72.0
 step = 0.01
 texture_under = ExtResource("2_23kd5")
 texture_progress = ExtResource("3_xts1v")

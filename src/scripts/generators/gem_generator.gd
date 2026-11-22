@@ -44,5 +44,5 @@ func generate_object(pos: Vector2i) -> bool:
 	gem_pos += offset
 	self.add_child(gem)
 	gem.set_position(gem_pos)
+	gem.set_random_sprite()
 	return true
-	
