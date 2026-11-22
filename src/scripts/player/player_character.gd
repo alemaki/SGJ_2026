@@ -41,6 +41,8 @@ var _is_input_allowed := true;
 @onready var interactable_sensor: InteractableSensor = $InteractableSensor
 @onready var highlighter: Highlighter = $Highlighter
 
+var last_dir = ""
+
 
 signal player_death(final_score)
 
@@ -55,12 +57,16 @@ func _handle_animations(input_dir: Vector2) -> void:
 	else:
 		if input_dir.x < 0:
 			animation_player.play("left")
+			last_dir = "left"
 		elif input_dir.x > 0:
 			animation_player.play("right")
+			last_dir = "right"
 		elif input_dir.y < 0:
 			animation_player.play("up")
+			last_dir = "up"
 		elif input_dir.y > 0:
 			animation_player.play("down")
+			last_dir = "down"
 
 
 
@@ -207,9 +213,31 @@ func _get_light_texture() -> GradientTexture2D:
 	return _light_texture
 
 func _play_interaction_animation(animation_name: StringName, _interactable: Interactable):
-	_is_input_allowed = false
-	animation_player.animation_finished.connect(_release_input)
-	animation_player.play(animation_name)
+	# Little hack on the fact that the players will try to get as close to the gem
+	# as possible - meaning the last direction of the player will be the last direction used.
+	# This is because the dot algorithm did not work.
+	animation_name = last_dir + "_dig"
+	#var gem_pos = _interactable.get_global_position()
+	#var direction = gem_pos - global_position
+	#if Vector2.RIGHT.dot(direction) > 0:
+		#animation_name = "right_dig"
+	#elif Vector2.LEFT.dot(direction) > 0:
+		#animation_name = "left_dig"
+	#if Vector2.UP.dot(direction) > 0:
+		#animation_name = "up_dig"
+	#elif Vector2.DOWN.dot(direction) > 0:
+		#animation_name = "down_dig"
+
+	if animation_player.sprite_frames.has_animation(animation_name):
+		_is_input_allowed = false
+		animation_player.animation_finished.connect(_release_input)
+		animation_player.play(animation_name)
+
+func _play_animation(animation_name: StringName):
+	if animation_player.sprite_frames.has_animation(animation_name):
+		_is_input_allowed = false
+		animation_player.animation_finished.connect(_release_input)
+		animation_player.play(animation_name)
 
 func _release_input():
 	animation_player.animation_finished.disconnect(_release_input)
