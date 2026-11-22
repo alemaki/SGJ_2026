@@ -25,6 +25,7 @@ func interact(interactor: Node) -> void:
 		_is_exhausted = true
 	if is_note:
 		on_note.emit()
+		self.queue_free()
 	else:
 		on_interaction.emit(interactor)
 
