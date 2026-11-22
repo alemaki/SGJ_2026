@@ -1,118 +1,1795 @@
 [gd_scene format=3 uid="uid://cdrrapn77i8p8"]
 
 [ext_resource type="Script" uid="uid://by8itc5vmqjvl" path="res://src/scripts/ui/godess_progress.gd" id="1_3i35c"]
-[ext_resource type="Texture2D" uid="uid://duipi51yumd0y" path="res://assets/art/ui/placeholder/test_vitraj.png" id="2_xkyxr"]
+[ext_resource type="Texture2D" uid="uid://bm7khng3dsjyk" path="res://assets/art/ui/placeholder/Goddess_progress.png" id="2_3i35c"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nlerv"]
-atlas = ExtResource("2_xkyxr")
-region = Rect2(0, 2560, 128, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3i35c"]
-atlas = ExtResource("2_xkyxr")
-region = Rect2(0, 0, 128, 256)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8syuc"]
+atlas = ExtResource("2_3i35c")
+region = Rect2(14996, 0, 163, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xkyxr"]
-atlas = ExtResource("2_xkyxr")
-region = Rect2(0, 256, 128, 256)
+atlas = ExtResource("2_3i35c")
+region = Rect2(0, 0, 163, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c766s"]
-atlas = ExtResource("2_xkyxr")
-region = Rect2(0, 768, 128, 256)
+atlas = ExtResource("2_3i35c")
+region = Rect2(163, 0, 163, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f0lms"]
-atlas = ExtResource("2_xkyxr")
-region = Rect2(0, 512, 128, 256)
+atlas = ExtResource("2_3i35c")
+region = Rect2(326, 0, 163, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_17lwr"]
-atlas = ExtResource("2_xkyxr")
-region = Rect2(0, 1024, 128, 256)
+[sub_resource type="AtlasTexture" id="AtlasTexture_u22lw"]
+atlas = ExtResource("2_3i35c")
+region = Rect2(489, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plexv"]
+atlas = ExtResource("2_3i35c")
+region = Rect2(652, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxhse"]
+atlas = ExtResource("2_3i35c")
+region = Rect2(815, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecnqe"]
+atlas = ExtResource("2_3i35c")
+region = Rect2(978, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ll48"]
+atlas = ExtResource("2_3i35c")
+region = Rect2(1141, 0, 163, 200)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ei8q"]
+load_path = "res://.godot/imported/Goddess_progress.png-0b0a33e71076436b427802dc21e81f7d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ej6"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i35c"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1630, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ei8q"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1630, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjr0k"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1956, 0, 163, 200)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3i35c"]
+load_path = "res://.godot/imported/Goddess_progress.png-0b0a33e71076436b427802dc21e81f7d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i716r"]
+atlas = SubResource("CompressedTexture2D_3i35c")
+region = Rect2(2119, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8y4l"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v1dx"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qspfe"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maf08"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hue50"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dta78"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct63j"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujxga"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2sym"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fosnd"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_066g0"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxitd"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87cws"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b44pi"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvy74"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp1xo"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7alag"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urq1q"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj7di"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebp03"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_224tl"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qg52"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmvi3"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6ijf"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1f4f"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc1rc"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0fiu"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt553"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a06d"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfbhh"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyf75"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64f7y"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14f40"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg5wu"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27udm"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow2ey"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k426m"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rspmm"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnho0"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecmsr"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wd6w"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0cut"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i63k"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq7m7"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6jxs"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5on5"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4krim"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5g07"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doex8"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wc5q"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enr8s"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vg5u6"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83sg4"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pphbq"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg6bm"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pbb4"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuh6q"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o1l0"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db1va"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1vd0"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsdm4"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpoqe"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t68q8"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15wts"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhi24"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eguh"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7bbp"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iq4p"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt4pd"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3h40"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4dow"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewspn"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6m7k"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eyey"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f862b"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxvdc"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqiyv"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl31v"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyxq0"]
+atlas = SubResource("CompressedTexture2D_8ei8q")
+region = Rect2(1467, 0, 163, 200)
 
 [node name="GodessProgress" type="Control" unique_id=1386638537]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1040.0
+offset_bottom = -0.24536133
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_3i35c")
-collected_gems = 12
+collected_gems = 21
+sheet = ExtResource("2_3i35c")
+first_frame = null
+under_frame = null
+min_brightness = 0.6
 start_hidden = false
+fade_out_duration = 0.9
 
 [node name="Frames" type="TextureProgressBar" parent="." unique_id=445106311]
+modulate = Color(1, 1, 1, 0.627451)
 layout_mode = 1
-offset_right = 536.0
-offset_bottom = 1072.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 550.0
+offset_right = 550.0
+grow_horizontal = 2
+grow_vertical = 2
 fill_mode = 3
 nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_nlerv")
+texture_under = SubResource("AtlasTexture_8syuc")
 
-[node name="First" type="TextureProgressBar" parent="Frames" unique_id=1620065718]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Frames" unique_id=1988911239]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-max_value = 4.0
-value = 4.0
-fill_mode = 3
-nine_patch_stretch = true
-texture_progress = SubResource("AtlasTexture_3i35c")
-
-[node name="Second" type="TextureProgressBar" parent="Frames" unique_id=1284625765]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-min_value = 4.0
-max_value = 8.0
-step = 5.0
-value = 8.0
-fill_mode = 3
+pivot_offset = Vector2(440, 539.8773)
+max_value = 1.0
+value = 1.0
 nine_patch_stretch = true
 texture_progress = SubResource("AtlasTexture_xkyxr")
 
-[node name="Second2" type="TextureProgressBar" parent="Frames" unique_id=1995425338]
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="Frames" unique_id=30937918]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-min_value = 8.0
-max_value = 12.0
-value = 12.0
-fill_mode = 3
+pivot_offset = Vector2(440, 539.8773)
+min_value = 1.0
+max_value = 2.0
+value = 2.0
 nine_patch_stretch = true
 texture_progress = SubResource("AtlasTexture_c766s")
 
-[node name="Second3" type="TextureProgressBar" parent="Frames" unique_id=1721801148]
+[node name="TextureProgressBar3" type="TextureProgressBar" parent="Frames" unique_id=1434564098]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-min_value = 12.0
-max_value = 16.0
-value = 12.0
-fill_mode = 3
+pivot_offset = Vector2(440, 539.8773)
+min_value = 2.0
+max_value = 3.0
+value = 3.0
 nine_patch_stretch = true
 texture_progress = SubResource("AtlasTexture_f0lms")
 
-[node name="Second4" type="TextureProgressBar" parent="Frames" unique_id=391070500]
+[node name="TextureProgressBar4" type="TextureProgressBar" parent="Frames" unique_id=1225927425]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-offset_transform_enabled = true
-min_value = 16.0
-max_value = 20.0
-value = 16.0
-fill_mode = 3
+pivot_offset = Vector2(440, 539.8773)
+min_value = 3.0
+max_value = 4.0
+value = 4.0
 nine_patch_stretch = true
-texture_progress = SubResource("AtlasTexture_17lwr")
+texture_progress = SubResource("AtlasTexture_u22lw")
+
+[node name="TextureProgressBar5" type="TextureProgressBar" parent="Frames" unique_id=2076195719]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 4.0
+max_value = 5.0
+value = 5.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_plexv")
+
+[node name="TextureProgressBar6" type="TextureProgressBar" parent="Frames" unique_id=513463824]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 5.0
+max_value = 6.0
+value = 6.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_sxhse")
+
+[node name="TextureProgressBar7" type="TextureProgressBar" parent="Frames" unique_id=1126854506]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 6.0
+max_value = 7.0
+value = 7.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_ecnqe")
+
+[node name="TextureProgressBar8" type="TextureProgressBar" parent="Frames" unique_id=2035286627]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 7.0
+max_value = 8.0
+value = 8.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_3ll48")
+
+[node name="TextureProgressBar9" type="TextureProgressBar" parent="Frames" unique_id=256868390]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 8.0
+max_value = 9.0
+value = 9.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_i4ej6")
+
+[node name="TextureProgressBar10" type="TextureProgressBar" parent="Frames" unique_id=11199064]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_3i35c")
+
+[node name="TextureProgressBar11" type="TextureProgressBar" parent="Frames" unique_id=1138722615]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_8ei8q")
+
+[node name="TextureProgressBar12" type="TextureProgressBar" parent="Frames" unique_id=592285400]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_vjr0k")
+
+[node name="TextureProgressBar13" type="TextureProgressBar" parent="Frames" unique_id=1126002131]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_i716r")
+
+[node name="TextureProgressBar14" type="TextureProgressBar" parent="Frames" unique_id=552058954]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_k8y4l")
+
+[node name="TextureProgressBar15" type="TextureProgressBar" parent="Frames" unique_id=1406960076]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_1v1dx")
+
+[node name="TextureProgressBar16" type="TextureProgressBar" parent="Frames" unique_id=2125460908]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_qspfe")
+
+[node name="TextureProgressBar17" type="TextureProgressBar" parent="Frames" unique_id=1996395945]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_maf08")
+
+[node name="TextureProgressBar18" type="TextureProgressBar" parent="Frames" unique_id=248024575]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_hue50")
+
+[node name="TextureProgressBar19" type="TextureProgressBar" parent="Frames" unique_id=1579497587]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_dta78")
+
+[node name="TextureProgressBar20" type="TextureProgressBar" parent="Frames" unique_id=1379998456]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_ct63j")
+
+[node name="TextureProgressBar21" type="TextureProgressBar" parent="Frames" unique_id=430008581]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_ujxga")
+
+[node name="TextureProgressBar22" type="TextureProgressBar" parent="Frames" unique_id=759469390]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_o2sym")
+
+[node name="TextureProgressBar23" type="TextureProgressBar" parent="Frames" unique_id=1436810586]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_fosnd")
+
+[node name="TextureProgressBar24" type="TextureProgressBar" parent="Frames" unique_id=1779277687]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_066g0")
+
+[node name="TextureProgressBar25" type="TextureProgressBar" parent="Frames" unique_id=1854917559]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_qxitd")
+
+[node name="TextureProgressBar26" type="TextureProgressBar" parent="Frames" unique_id=1385014233]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_87cws")
+
+[node name="TextureProgressBar27" type="TextureProgressBar" parent="Frames" unique_id=2094486333]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_b44pi")
+
+[node name="TextureProgressBar28" type="TextureProgressBar" parent="Frames" unique_id=2016982636]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_qvy74")
+
+[node name="TextureProgressBar29" type="TextureProgressBar" parent="Frames" unique_id=628885987]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_mp1xo")
+
+[node name="TextureProgressBar30" type="TextureProgressBar" parent="Frames" unique_id=1280044423]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_7alag")
+
+[node name="TextureProgressBar31" type="TextureProgressBar" parent="Frames" unique_id=1556250857]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_urq1q")
+
+[node name="TextureProgressBar32" type="TextureProgressBar" parent="Frames" unique_id=913238380]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_mj7di")
+
+[node name="TextureProgressBar33" type="TextureProgressBar" parent="Frames" unique_id=1792952425]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_ebp03")
+
+[node name="TextureProgressBar34" type="TextureProgressBar" parent="Frames" unique_id=953671179]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_224tl")
+
+[node name="TextureProgressBar35" type="TextureProgressBar" parent="Frames" unique_id=1523607642]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_6qg52")
+
+[node name="TextureProgressBar36" type="TextureProgressBar" parent="Frames" unique_id=4775227]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_qmvi3")
+
+[node name="TextureProgressBar37" type="TextureProgressBar" parent="Frames" unique_id=1883099711]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_t6ijf")
+
+[node name="TextureProgressBar38" type="TextureProgressBar" parent="Frames" unique_id=1285745469]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_n1f4f")
+
+[node name="TextureProgressBar39" type="TextureProgressBar" parent="Frames" unique_id=656257653]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_uc1rc")
+
+[node name="TextureProgressBar40" type="TextureProgressBar" parent="Frames" unique_id=602043368]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_v0fiu")
+
+[node name="TextureProgressBar41" type="TextureProgressBar" parent="Frames" unique_id=1865574775]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_dt553")
+
+[node name="TextureProgressBar42" type="TextureProgressBar" parent="Frames" unique_id=1097472627]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_8a06d")
+
+[node name="TextureProgressBar43" type="TextureProgressBar" parent="Frames" unique_id=610903292]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_wfbhh")
+
+[node name="TextureProgressBar44" type="TextureProgressBar" parent="Frames" unique_id=1077965821]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_jyf75")
+
+[node name="TextureProgressBar45" type="TextureProgressBar" parent="Frames" unique_id=1941146195]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_64f7y")
+
+[node name="TextureProgressBar46" type="TextureProgressBar" parent="Frames" unique_id=146954621]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_14f40")
+
+[node name="TextureProgressBar47" type="TextureProgressBar" parent="Frames" unique_id=1137732820]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_wg5wu")
+
+[node name="TextureProgressBar48" type="TextureProgressBar" parent="Frames" unique_id=432145887]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_27udm")
+
+[node name="TextureProgressBar49" type="TextureProgressBar" parent="Frames" unique_id=235747158]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_ow2ey")
+
+[node name="TextureProgressBar50" type="TextureProgressBar" parent="Frames" unique_id=1567316370]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_k426m")
+
+[node name="TextureProgressBar51" type="TextureProgressBar" parent="Frames" unique_id=1848275055]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_rspmm")
+
+[node name="TextureProgressBar52" type="TextureProgressBar" parent="Frames" unique_id=815304858]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_tnho0")
+
+[node name="TextureProgressBar53" type="TextureProgressBar" parent="Frames" unique_id=1796875947]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_ecmsr")
+
+[node name="TextureProgressBar54" type="TextureProgressBar" parent="Frames" unique_id=150485158]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_0wd6w")
+
+[node name="TextureProgressBar55" type="TextureProgressBar" parent="Frames" unique_id=1862871470]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_o0cut")
+
+[node name="TextureProgressBar56" type="TextureProgressBar" parent="Frames" unique_id=966775363]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_1i63k")
+
+[node name="TextureProgressBar57" type="TextureProgressBar" parent="Frames" unique_id=1198045888]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_vq7m7")
+
+[node name="TextureProgressBar58" type="TextureProgressBar" parent="Frames" unique_id=1700504940]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_q6jxs")
+
+[node name="TextureProgressBar59" type="TextureProgressBar" parent="Frames" unique_id=607829215]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_a5on5")
+
+[node name="TextureProgressBar60" type="TextureProgressBar" parent="Frames" unique_id=1479680358]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4krim")
+
+[node name="TextureProgressBar61" type="TextureProgressBar" parent="Frames" unique_id=55207587]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_g5g07")
+
+[node name="TextureProgressBar62" type="TextureProgressBar" parent="Frames" unique_id=375341464]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_doex8")
+
+[node name="TextureProgressBar63" type="TextureProgressBar" parent="Frames" unique_id=1225200894]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_7wc5q")
+
+[node name="TextureProgressBar64" type="TextureProgressBar" parent="Frames" unique_id=2096352696]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_enr8s")
+
+[node name="TextureProgressBar65" type="TextureProgressBar" parent="Frames" unique_id=1116247128]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_vg5u6")
+
+[node name="TextureProgressBar66" type="TextureProgressBar" parent="Frames" unique_id=23847339]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_83sg4")
+
+[node name="TextureProgressBar67" type="TextureProgressBar" parent="Frames" unique_id=1455287097]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_pphbq")
+
+[node name="TextureProgressBar68" type="TextureProgressBar" parent="Frames" unique_id=566129650]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_rg6bm")
+
+[node name="TextureProgressBar69" type="TextureProgressBar" parent="Frames" unique_id=509926691]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_6pbb4")
+
+[node name="TextureProgressBar70" type="TextureProgressBar" parent="Frames" unique_id=2052431477]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_uuh6q")
+
+[node name="TextureProgressBar71" type="TextureProgressBar" parent="Frames" unique_id=1510644466]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_1o1l0")
+
+[node name="TextureProgressBar72" type="TextureProgressBar" parent="Frames" unique_id=1320756245]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_db1va")
+
+[node name="TextureProgressBar73" type="TextureProgressBar" parent="Frames" unique_id=794308042]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_g1vd0")
+
+[node name="TextureProgressBar74" type="TextureProgressBar" parent="Frames" unique_id=898526307]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_lsdm4")
+
+[node name="TextureProgressBar75" type="TextureProgressBar" parent="Frames" unique_id=1850665310]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_gpoqe")
+
+[node name="TextureProgressBar76" type="TextureProgressBar" parent="Frames" unique_id=1231021236]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_t68q8")
+
+[node name="TextureProgressBar77" type="TextureProgressBar" parent="Frames" unique_id=1870803202]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_15wts")
+
+[node name="TextureProgressBar78" type="TextureProgressBar" parent="Frames" unique_id=485420723]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_lhi24")
+
+[node name="TextureProgressBar79" type="TextureProgressBar" parent="Frames" unique_id=409372286]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_0eguh")
+
+[node name="TextureProgressBar80" type="TextureProgressBar" parent="Frames" unique_id=1262917501]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_t7bbp")
+
+[node name="TextureProgressBar81" type="TextureProgressBar" parent="Frames" unique_id=780575624]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_5iq4p")
+
+[node name="TextureProgressBar82" type="TextureProgressBar" parent="Frames" unique_id=383218675]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_xt4pd")
+
+[node name="TextureProgressBar83" type="TextureProgressBar" parent="Frames" unique_id=4618389]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_l3h40")
+
+[node name="TextureProgressBar84" type="TextureProgressBar" parent="Frames" unique_id=644032707]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_c4dow")
+
+[node name="TextureProgressBar85" type="TextureProgressBar" parent="Frames" unique_id=258322274]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_ewspn")
+
+[node name="TextureProgressBar86" type="TextureProgressBar" parent="Frames" unique_id=1981925943]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_m6m7k")
+
+[node name="TextureProgressBar87" type="TextureProgressBar" parent="Frames" unique_id=1593742732]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_1eyey")
+
+[node name="TextureProgressBar88" type="TextureProgressBar" parent="Frames" unique_id=703871529]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_f862b")
+
+[node name="TextureProgressBar89" type="TextureProgressBar" parent="Frames" unique_id=305009411]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_vxvdc")
+
+[node name="TextureProgressBar90" type="TextureProgressBar" parent="Frames" unique_id=1299950052]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_mqiyv")
+
+[node name="TextureProgressBar91" type="TextureProgressBar" parent="Frames" unique_id=427392804]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_cl31v")
+
+[node name="TextureProgressBar92" type="TextureProgressBar" parent="Frames" unique_id=100528120]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 539.8773)
+min_value = 9.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_dyxq0")
