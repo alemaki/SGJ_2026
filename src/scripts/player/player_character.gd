@@ -7,12 +7,13 @@ extends CharacterBody2D
 
 # Illumination settings
 @export var illuminate_cooldown: float = 1.5
-@export var illuminate_timer: float = 120.0 # expected in seconds
+@export var illuminate_timer_max: float = 120.0 # expected in seconds
 
 const RING_TEXTURE_SIZE := 256
 const RING_MIN_SCALE := 0.01
 
 var _illuminate_cooldown_left: float = 0.0
+var _illuminate_timer: float = illuminate_timer_max
 
 @export var light_radius: float = 750.0
 @export var light_energy: float = 1
@@ -25,6 +26,7 @@ var _illuminate_cooldown_left: float = 0.0
 @export var animation_player: AnimatedSprite2D = null
 @export var obsession_bar: ObsessionBar = null
 @export var score_tracker: ScoreTracker = null
+@export var light_progress: LightProgress = null
 
 const LIGHT_TEXTURE_SIZE := 256
 const LIGHT_MIN_SCALE := 0.01
@@ -40,10 +42,12 @@ var _is_input_allowed := true;
 
 
 signal player_death(final_score)
+signal obsession_halfway
 
 func _ready() -> void:
 	obsession_bar.resume_progress()
 	interactable_sensor.on_interaction_performed.connect(_play_interaction_animation)
+	light_progress.set_progress(_illuminate_timer, illuminate_timer_max)
 
 func _handle_animations(input_dir: Vector2) -> void:
 	if velocity == Vector2.ZERO:
@@ -85,12 +89,13 @@ func _physics_process(delta: float) -> void:
 	# Hangling Illuminate cooldown
 	_illuminate_cooldown_left = maxf(_illuminate_cooldown_left - delta, 0.0)
 
-	if _light_on && illuminate_timer > 0:
-		illuminate_timer -= delta
-	if illuminate_timer <= 0 and _light_on:
+	if _light_on && _illuminate_timer > 0:
+		_illuminate_timer -= delta
+		light_progress.set_progress(_illuminate_timer, illuminate_timer_max)
+	if _illuminate_timer <= 0 and _light_on:
 		_toggle_light()
 
-	if Input.is_action_just_pressed("ui_accept_device_0") and _illuminate_cooldown_left == 0.0 and illuminate_timer > 0:
+	if Input.is_action_just_pressed("ui_accept_device_0") and _illuminate_cooldown_left == 0.0 and _illuminate_timer > 0:
 		_toggle_light()
 		highlighter.toggle_highlighting()
 		_illuminate_cooldown_left = illuminate_cooldown
@@ -213,3 +218,7 @@ func _release_input():
 
 func _on_obsession_bar_obsession_filled() -> void:
 	player_death.emit(score_tracker.current_score)
+
+
+func _on_obsession_bar_obsession_halfway() -> void:
+	obsession_halfway.emit()

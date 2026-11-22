@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c7dnf51gr38ps"]
+
+[ext_resource type="Script" uid="uid://i1u33wlriulv" path="res://src/scripts/ui/light_progress.gd" id="1_nxcea"]
+
+[node name="LightProgress" type="Control" unique_id=1818586432 node_paths=PackedStringArray("bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nxcea")
+bar = NodePath("Bar")
+metadata/_custom_type_script = "uid://i1u33wlriulv"
+
+[node name="Bar" type="ProgressBar" parent="." unique_id=1517706565]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0

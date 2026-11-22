@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dl7pwixi6nmee" path="res://src/scripts/player/player_camera.gd" id="3_oxmt1"]
 [ext_resource type="PackedScene" uid="uid://cxsebvuijxy7g" path="res://src/scenes/score.tscn" id="4_1hvy0"]
 [ext_resource type="Script" uid="uid://bi4edrwd02i61" path="res://src/scripts/player/interactable_sensor.gd" id="5_pw81d"]
+[ext_resource type="PackedScene" uid="uid://c7dnf51gr38ps" path="res://src/scenes/light_progress.tscn" id="6_jc02h"]
 [ext_resource type="Script" uid="uid://u7ea28nmpjnb" path="res://src/scripts/highlighter.gd" id="7_6klo3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vboe8"]
@@ -29,7 +30,7 @@ radius = 18.027756
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6klo3"]
 
-[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962 node_paths=PackedStringArray("animation_player", "obsession_bar", "score_tracker")]
+[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1915261962 node_paths=PackedStringArray("animation_player", "obsession_bar", "score_tracker", "light_progress")]
 collision_mask = 6
 script = ExtResource("1_5p0pn")
 speed = 200.0
@@ -38,6 +39,7 @@ light_radius = 450.0
 animation_player = NodePath("Body")
 obsession_bar = NodePath("Camera/CanvasLayer/ObsessionBar")
 score_tracker = NodePath("Camera/CanvasLayer/MarginContainer/ScoreTracker")
+light_progress = NodePath("Camera/CanvasLayer/LightProgress")
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=2139457209]
 sprite_frames = ExtResource("2_5p0pn")
@@ -84,6 +86,10 @@ layout_mode = 2
 size_flags_horizontal = 0
 offset_transform_enabled = true
 
+[node name="LightProgress" parent="Camera/CanvasLayer" unique_id=1818586432 instance=ExtResource("6_jc02h")]
+offset_top = 60.0
+offset_bottom = 60.0
+
 [node name="InteractableSensor" type="Area2D" parent="." unique_id=1111991030]
 collision_layer = 0
 collision_mask = 2
@@ -103,3 +109,4 @@ metadata/_custom_type_script = "uid://u7ea28nmpjnb"
 shape = SubResource("CircleShape2D_6klo3")
 
 [connection signal="obsession_filled" from="Camera/CanvasLayer/ObsessionBar" to="." method="_on_obsession_bar_obsession_filled"]
+[connection signal="obsession_halfway" from="Camera/CanvasLayer/ObsessionBar" to="." method="_on_obsession_bar_obsession_halfway"]
