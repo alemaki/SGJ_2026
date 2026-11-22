@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bjqtjwvchjfsj"]
+
+[ext_resource type="Script" uid="uid://75bd82uxuxog" path="res://src/scripts/player/interactable.gd" id="1_6st8q"]
+[ext_resource type="Script" uid="uid://bi4edrwd02i61" path="res://src/scripts/player/interactable_sensor.gd" id="2_ewwnu"]
+[ext_resource type="Texture2D" uid="uid://c06eknvesjpuc" path="res://paper.png" id="3_71nm0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tn1tw"]
+radius = 14.769774
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1936711443]
+script = ExtResource("1_6st8q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1290849238]
+shape = SubResource("CircleShape2D_tn1tw")
+script = ExtResource("2_ewwnu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=773824446]
+texture = ExtResource("3_71nm0")

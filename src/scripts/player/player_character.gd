@@ -103,14 +103,13 @@ func _physics_process(delta: float) -> void:
 	if _illuminate_timer <= 0 and _light_on:
 		_toggle_light()
 
-	if Input.is_action_just_pressed("ui_back_device_0") and _illuminate_cooldown_left == 0.0 and _illuminate_timer > 0:
+	if Input.is_action_just_pressed("ui_accept_device_0") and _illuminate_cooldown_left == 0.0 and _illuminate_timer > 0:
 		_toggle_light()
 		highlighter.toggle_highlighting()
 		_illuminate_cooldown_left = illuminate_cooldown
 
 	# Handle interaction
-	if Input.is_action_just_pressed("ui_accept_device_0"):
-
+	if Input.is_action_just_pressed("ui_back_device_0"):
 		if interactable_sensor.request_interaction():
 			# Play pick up animation or whatever
 			pass
