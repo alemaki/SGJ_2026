@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://clmy0m1tv42i3" path="res://assets/art/world/placeholders/tile_1.png" id="1_iw65x"]
 [ext_resource type="PackedScene" uid="uid://brnn0mkes1n6e" path="res://src/resources/player_character.tscn" id="2_td8h7"]
+[ext_resource type="PackedScene" uid="uid://kgddrxjowpu1" path="res://src/scenes/gems/gem_emerald.tscn" id="3_2x1b3"]
+[ext_resource type="PackedScene" uid="uid://bmyrlhg5o8mb" path="res://src/scenes/gems/gem_ruby.tscn" id="4_3ysxq"]
+[ext_resource type="PackedScene" uid="uid://c7a75p0fs6ptr" path="res://src/scenes/gems/gem_saphire.tscn" id="5_cfhw2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_td8h7"]
 polygon = PackedVector2Array(8.9030075, -2.9042969, 8, -3.438324, -1.431282, -1.5873947, -2.272894, 8, 8, 8, 8, -2.8988876)
@@ -113,5 +116,14 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAEAAEAAAABAAEAAAAEAAEAAAACAAEAAAAEAAE
 tile_set = SubResource("TileSet_tn3ss")
 
 [node name="PlayerCharacter" parent="." unique_id=1915261962 instance=ExtResource("2_td8h7")]
-position = Vector2(-11, 22)
+position = Vector2(22, 24)
 scale = Vector2(0.3, 0.3)
+
+[node name="GemRoot" parent="." unique_id=1985147079 instance=ExtResource("3_2x1b3")]
+position = Vector2(86, 39)
+
+[node name="GemRoot2" parent="." unique_id=335012882 instance=ExtResource("4_3ysxq")]
+position = Vector2(137, 29)
+
+[node name="GemRoot3" parent="." unique_id=46768456 instance=ExtResource("5_cfhw2")]
+position = Vector2(50, 10)

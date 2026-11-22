@@ -1,7 +1,7 @@
 
 class_name Gem
 
-extends AnimatedSprite2D
+extends Node2D
 
 @export var hits_needed_to_collect := 2
 @export var score_reward := 10
