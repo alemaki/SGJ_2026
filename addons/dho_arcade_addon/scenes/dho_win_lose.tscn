@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://nsq2h8jylxni" path="res://addons/dho_arcade_addon/scripts/control_nodes/labels/dho_score_label.gd" id="3_te1d3"]
 [ext_resource type="Script" uid="uid://1m3f1rp22asu" path="res://addons/dho_arcade_addon/scripts/control_nodes/labels/dho_localized_label.gd" id="6_te1d3"]
 [ext_resource type="Script" uid="uid://4aubjdyqkpw1" path="res://addons/dho_arcade_addon/scripts/control_nodes/labels/dho_blinking_label.gd" id="6_vdcf1"]
+[ext_resource type="Texture2D" uid="uid://bju8snwpv1t3j" path="res://assets/art/loose.png" id="8_4cxfh"]
+[ext_resource type="Texture2D" uid="uid://2jcagan3gsi4" path="res://assets/art/Win(1).png" id="9_pdgp3"]
+[ext_resource type="Texture2D" uid="uid://dcyhul8k1tus5" path="res://assets/art/Kinda win.png" id="10_ke6si"]
 
 [sub_resource type="Resource" id="Resource_dg5ra"]
 script = ExtResource("3_3jmed")
@@ -38,7 +41,7 @@ format = "%s: %s   %s: %s"
 text_keys = Array[String](["DHO_BUTTON_A", "DHO_STRING_PLAY_AGAIN", "DHO_BUTTON_B", "DHO_STRING_MENU"])
 metadata/_custom_type_script = "uid://d21rys816bhtk"
 
-[node name="WinLose" type="Control" unique_id=1649914357 node_paths=PackedStringArray("score_saved_label", "win_lose_label")]
+[node name="WinLose" type="Control" unique_id=1649914357 node_paths=PackedStringArray("score_saved_label", "win_lose_label", "normal_win_sprite", "no_win_sprite", "lose_sprite")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,6 +54,9 @@ score_saved_label = NodePath("PanelContainer/MarginContainer2/VBoxContainer/Cent
 win_lose_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/WinLoseLabel")
 win_text_ref = SubResource("Resource_dg5ra")
 lose_text_ref = SubResource("Resource_3jmed")
+normal_win_sprite = NodePath("PanelContainer/Win")
+no_win_sprite = NodePath("PanelContainer/PussyWin")
+lose_sprite = NodePath("PanelContainer/Lose")
 dho_context = ExtResource("3_dg5ra")
 metadata/_custom_type_script = "uid://dvm1g7vyj6p8d"
 
@@ -61,6 +67,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Win" type="Sprite2D" parent="PanelContainer" unique_id=1842800315]
+visible = false
+modulate = Color(0.41155484, 0.41155484, 0.4115548, 1)
+position = Vector2(962.5, 540)
+scale = Vector2(0.74726564, 0.42265624)
+texture = ExtResource("9_pdgp3")
+
+[node name="Lose" type="Sprite2D" parent="PanelContainer" unique_id=1160510657]
+visible = false
+modulate = Color(0.3695689, 0.36956894, 0.36956888, 1)
+position = Vector2(963.99994, 540)
+scale = Vector2(0.74921864, 0.42265627)
+texture = ExtResource("8_4cxfh")
+
+[node name="PussyWin" type="Sprite2D" parent="PanelContainer" unique_id=1586289601]
+visible = false
+modulate = Color(0.46253347, 0.46253353, 0.46253347, 1)
+position = Vector2(961, 536)
+scale = Vector2(0.74843746, 0.42187503)
+texture = ExtResource("10_ke6si")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1451461090]
 layout_mode = 2

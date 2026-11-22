@@ -3,7 +3,7 @@
 
 # NOTE: See the README.md for more information.
 # This scripts' purpose is to be a part of the DevHubOne's plugin scenes.
-# It is not intended to be used in your game. 
+# It is not intended to be used in your game.
 # Make of that what you will.
 
 extends DHOScene
@@ -18,6 +18,10 @@ class_name DHOWinLoseScene
 @export var win_text_ref: DHOLocalizedText = null
 @export var lose_text_ref: DHOLocalizedText = null
 
+@export var normal_win_sprite: Sprite2D = null
+@export var no_win_sprite: Sprite2D = null
+@export var lose_sprite: Sprite2D = null
+
 func _ready() -> void:
 	assert(self.win_text_ref != null)
 	assert(self.lose_text_ref != null)
@@ -28,10 +32,15 @@ func _ready() -> void:
 		self.score_saved_label.set_visible(true)
 	else:
 		self.score_saved_label.set_visible(false)
-	
-	if self.dho_context.is_win:
+
+	if self.dho_context.is_win and dho_context.score == 0:
+		self.win_lose_label.set_text("You kinda win...")
+		no_win_sprite.show()
+	elif self.dho_context.is_win:
 		self.win_lose_label.set_text(win_text_ref.get_text())
+		normal_win_sprite.show()
 	else:
+		lose_sprite.show()
 		self.win_lose_label.set_text(lose_text_ref.get_text())
 
 
