@@ -102,6 +102,8 @@ func _physics_process(delta: float) -> void:
 		light_progress.set_progress(_illuminate_timer, illuminate_timer_max)
 	if _illuminate_timer <= 0 and _light_on:
 		_toggle_light()
+		highlighter.toggle_highlighting()
+
 
 	if Input.is_action_just_pressed("ui_accept_device_0") and _illuminate_cooldown_left == 0.0 and _illuminate_timer > 0:
 		_toggle_light()
